@@ -1,62 +1,30 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+"use client";
+import * as React from "react";
+import { Header } from "@/components/cefer/Header";
+import { HeroSection } from "@/components/cefer/HeroSection";
+import { DashboardSection } from "@/components/cefer/DashboardSection";
+import { StatsSection } from "@/components/cefer/StatsSection";
+import { FeaturesSection } from "@/components/cefer/FeaturesSection";
+import { PlatformSection } from "@/components/cefer/PlatformSection";
+import { Footer } from "@/components/cefer/Footer";
 
-export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
-
+function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
+    <div className="overflow-hidden bg-white">
+      <div className="flex flex-col items-center w-full max-md:max-w-full">
+        <div className="flex flex-col self-stretch pt-4 pb-36 w-full bg-neutral-100 max-md:pb-24 max-md:max-w-full">
+          <Header />
+          <HeroSection />
+        </div>
+
+        <DashboardSection />
+        <StatsSection />
+        <FeaturesSection />
+        <PlatformSection />
+        <Footer />
       </div>
     </div>
   );
 }
+
+export default Home;
