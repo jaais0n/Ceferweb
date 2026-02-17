@@ -3,9 +3,15 @@ import * as React from "react";
 import { Header } from "@/components/cefer/Header";
 import { HeroSection } from "@/components/cefer/HeroSection";
 import { DashboardSection } from "@/components/cefer/DashboardSection";
+import { WhyCeferSection } from "@/components/cefer/WhyCeferSection";
+import { PoweringGrowthSection } from "@/components/cefer/PoweringGrowthSection";
+import { TrustedBySection } from "@/components/cefer/TrustedBySection";
 import { StatsSection } from "@/components/cefer/StatsSection";
 import { FeaturesSection } from "@/components/cefer/FeaturesSection";
-import { PlatformSection } from "@/components/cefer/PlatformSection";
+import { HowItWorksSection } from "@/components/cefer/HowItWorksSection";
+import { TestimonialsSection } from "@/components/cefer/TestimonialsSection";
+import { FaqSection } from "@/components/cefer/FaqSection";
+import { CtaSection } from "@/components/cefer/CtaSection";
 import { Footer } from "@/components/cefer/Footer";
 
 function Home() {
@@ -20,8 +26,13 @@ function Home() {
         <DashboardSection />
         <StatsSection />
         <FeaturesSection />
-        <PlatformSection />
-        <Footer />
+        <HowItWorksSection />
+        <WhyCeferSection />
+        <PoweringGrowthSection />
+        <TrustedBySection />
+        <TestimonialsSection />
+        <CtaSection />
+        <FaqSection />
       </div>
     </div>
   );

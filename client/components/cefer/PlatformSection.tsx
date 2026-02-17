@@ -9,7 +9,7 @@ export function PlatformSection() {
         className="object-contain self-stretch w-full aspect-[2.28] shadow-[0px_24px_24px_rgba(55,52,169,0.3)] max-md:max-w-full"
       />
 
-      <h2 className="mt-80 text-2xl font-semibold tracking-tighter text-center text-zinc-900 max-md:mt-10">
+      <h2 className="mt-80 text-2xl font-semibold tracking-tighter text-center text-cefer-black max-md:mt-10">
         All-in-One Platform Data You Can Trust
       </h2>
       <p className="text-base font-semibold tracking-tighter text-center text-neutral-400 max-md:max-w-full">
@@ -18,7 +18,7 @@ export function PlatformSection() {
         place.
       </p>
 
-      <h3 className="mt-12 text-2xl font-semibold tracking-tighter text-center text-zinc-900 max-md:mt-10">
+      <h3 className="mt-12 text-2xl font-semibold tracking-tighter text-center text-cefer-black max-md:mt-10">
         Easy to Integrate
       </h3>
       <p className="text-base font-semibold tracking-tighter text-center text-neutral-400 max-md:max-w-full">

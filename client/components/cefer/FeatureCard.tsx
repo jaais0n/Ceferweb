@@ -22,7 +22,7 @@ export function FeatureCard({
         alt={`${title} icon`}
         className="object-contain w-14 h-14 bg-white rounded-full aspect-square shadow-[0px_1px_6px_rgba(0,0,0,0.18)]"
       />
-      <h3 className="mt-1.5 text-2xl tracking-tighter text-zinc-900">
+      <h3 className="mt-1.5 text-2xl tracking-tighter text-cefer-black">
         {title}
       </h3>
       <p className="self-stretch mt-1.5 text-base tracking-tighter text-neutral-400">

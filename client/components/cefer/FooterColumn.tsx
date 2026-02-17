@@ -7,22 +7,18 @@ interface FooterColumnProps {
 
 export function FooterColumn({ title, items }: FooterColumnProps) {
   return (
-    <div className="flex flex-col grow font-semibold max-md:mt-10">
-      <h4 className="self-center text-base tracking-tighter text-center text-zinc-900">
+    <div className="flex flex-col max-md:mt-10 min-w-[120px]">
+      <h4 className="text-base font-bold tracking-tight text-cefer-black mb-6">
         {title}
       </h4>
-      <nav className="flex flex-col items-start px-6 pt-5 pb-11 mt-4 text-xs tracking-tight leading-none bg-white rounded-lg shadow-2xl text-neutral-400 max-md:px-5">
+      <nav className="flex flex-col items-start gap-4 text-sm font-medium tracking-tight text-zinc-500">
         {items.map((item, index) => {
           const path = `/${item.toLowerCase().replace(/\s+/g, "-")}`;
           return (
             <Link
               key={index}
               to={path}
-              className={
-                index === 0
-                  ? "hover:text-blue-600 transition-colors"
-                  : `mt-${index < 4 ? "2" : index < 6 ? "2.5" : "3"} hover:text-blue-600 transition-colors`
-              }
+              className="hover:text-cefer-blue transition-all duration-200"
             >
               {item}
             </Link>
