@@ -1,4 +1,3 @@
-import * as React from "react";
 
 const testimonials = [
     {
@@ -25,7 +24,7 @@ export function TestimonialsSection() {
     return (
         <section className="w-full py-24 px-4 bg-neutral-50">
             <div className="max-w-[1100px] mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-16">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-center mb-16">
                     Loved by <span className="text-gradient-cefer">Sales Teams</span>
                 </h2>
 

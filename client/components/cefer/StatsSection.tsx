@@ -1,17 +1,15 @@
-import * as React from "react";
 
 export function StatsSection() {
   const stats = [
-    { value: "3X", label: "More outbound leads" },
-    { value: "25%", label: "More deals" },
-    { value: "1000%", label: "More ROI" },
-    { value: "10X", label: "More conversions" },
-    { value: "100%", label: "Growth in pipeline" },
+    { value: "Below 1%", label: "Hard Bounces" },
+    { value: "99% ", label: "Email Accuracy" },
+    { value: "30–50%", label: "Reduction in Wasted Outreach" },
+    { value: "2–3X", label: "Better Reply Rates" },
   ];
 
   return (
-    <section className="flex flex-col items-center w-full py-20 px-4 bg-white">
-      <h2 className="text-4xl font-bold text-center text-gradient-cefer mb-20 max-w-[1000px] py-2">
+    <section className="flex flex-col items-center w-full py-10 md:py-20 px-4 bg-white">
+      <h2 className="text-4xl font-bold text-center text-gradient-cefer mb-8 md:mb-20 max-w-[1000px] py-2">
         Top revenue teams use Cefer to smash their goals
       </h2>
 

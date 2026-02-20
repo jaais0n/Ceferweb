@@ -1,12 +1,11 @@
-import * as React from "react";
 import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDown } from "lucide-react";
 
 export function FaqSection() {
     return (
-        <section className="w-full py-24 px-4 bg-white">
+        <section className="w-full py-12 md:py-24 px-4 bg-white">
             <div className="max-w-[800px] mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-8 md:mb-16">
                     Frequently <span className="text-gradient-cefer">Asked Questions</span>
                 </h2>
 

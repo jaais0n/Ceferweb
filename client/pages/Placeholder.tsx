@@ -18,7 +18,7 @@ const Placeholder = () => {
           {capitalizedPageName || "Coming Soon"}
         </h1>
         <p className="text-xl text-neutral-400 max-w-md mb-8 tracking-tighter">
-          We're currently working on this page. Please continue prompting to fill in this page contents if you want it!
+          We're currently working on this page. Check back soon for updates!
         </p>
         <Link
           to="/"

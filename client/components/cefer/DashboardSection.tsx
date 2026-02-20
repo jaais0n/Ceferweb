@@ -2,7 +2,7 @@ import * as React from "react";
 
 export function DashboardSection() {
   return (
-    <section className="flex flex-col items-center w-full px-4 py-12 md:py-16 relative z-10">
+    <section className="flex flex-col items-center w-full px-4 py-6 md:py-16 relative z-10">
       {/* Our Dashboard Heading */}
       <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center text-cefer-black mb-2">
         Our Dashboard
