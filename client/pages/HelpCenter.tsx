@@ -31,9 +31,9 @@ const faqs = [
       "Cefer's data accuracy pipeline runs continuous validation across 300M+ contacts. Every email is triple-verified: syntax check, domain check, and real-time SMTP verification. Company records are refreshed with news signals, job-change tracking, and firmographic updates — ensuring you always have the freshest data available.",
   },
   {
-    question: "Can I integrate Cefer with my existing CRM or outreach tools?",
+    question: "Can I use Cefer.io with LinkedIn?",
     answer:
-      "Yes. Cefer offers native integrations with HubSpot, Salesforce, Pipedrive, Outreach, Salesloft, and more. You can also use the REST API to build custom workflows. Our Chrome Extension lets you push data directly from LinkedIn or any company website into your CRM without leaving your browser.",
+      "Yes. Cefer.io offers a Chrome extension that works directly on LinkedIn and company websites. You can find, verify, and export contact details without leaving your browser.",
   },
   {
     question: "What is Intent Data and how does it help prioritise outreach?",

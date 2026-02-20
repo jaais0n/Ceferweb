@@ -30,19 +30,19 @@ export function FaqSection() {
                             </Accordion.Trigger>
                         </Accordion.Header>
                         <Accordion.Content className="p-4 md:p-6 pt-0 text-neutral-600 bg-neutral-50">
-                            Yes! You can start for free with 25 credits. No credit card required. This allows you to test our data accuracy and platform features before committing to a plan.
+                            Yes! You can start for free with 300 credits. No credit card required. This allows you to test our data accuracy and platform features before committing to a plan.
                         </Accordion.Content>
                     </Accordion.Item>
 
                     <Accordion.Item value="item-3" className="border border-neutral-200 rounded-lg overflow-hidden">
                         <Accordion.Header>
                             <Accordion.Trigger className="flex justify-between items-center w-full p-4 md:p-6 text-left font-semibold text-cefer-black hover:bg-neutral-50 transition-colors data-[state=open]:bg-neutral-50 group">
-                                Does Cefer integrate with my CRM?
+                                Can I use Cefer.io with LinkedIn?
                                 <ChevronDown className="w-5 h-5 text-neutral-400 group-data-[state=open]:rotate-180 transition-transform" />
                             </Accordion.Trigger>
                         </Accordion.Header>
                         <Accordion.Content className="p-4 md:p-6 pt-0 text-neutral-600 bg-neutral-50">
-                            Absolutely. We offer native integrations with Salesforce, HubSpot, Pipedrive, and Zapier, making it easy to push verified contacts directly into your existing workflow.
+                           Yes. Cefer.io offers a Chrome extension that works directly on LinkedIn and company websites. You can find, verify, and export contact details without leaving your browser.
                         </Accordion.Content>
                     </Accordion.Item>
 

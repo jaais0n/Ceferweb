@@ -2,7 +2,7 @@
 export function StatsSection() {
   const stats = [
     { value: "Below 1%", label: "Hard Bounces" },
-    { value: "99% ", label: "Email Accuracy" },
+    { value: "95% ", label: "Email Accuracy" },
     { value: "30–50%", label: "Reduction in Wasted Outreach" },
     { value: "2–3X", label: "Better Reply Rates" },
   ];
