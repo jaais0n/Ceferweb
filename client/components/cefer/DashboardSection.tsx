@@ -23,18 +23,19 @@ export function DashboardSection() {
 
         {/* Video sits ON TOP, auto-plays and loops silently */}
         <div
-          className="absolute"
+          className="absolute overflow-hidden"
           style={{
-            top: "4%",
-            left: "9.5%",
-            right: "9.5%",
+            top: "5%",
+            left: "10%",
+            right: "9%",
             bottom: "9%",
             zIndex: 1,
+            borderRadius: "4px",
           }}
         >
           <video
             src="/Dashvideo.mp4"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
             autoPlay
             loop
             muted
