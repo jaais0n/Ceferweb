@@ -11,7 +11,7 @@ export default function Prospects() {
         </svg>
       ),
       title: "Advanced Filters for Laser-Targeted Search",
-      description: "Search prospects by company name, job title, location, revenue, funding, or tech stack — and get results that truly match your ICP (Ideal Customer Profile)."
+      description: "Search prospects by company name, job title, location, revenue, funding, or tech stack  and get results that truly match your ICP (Ideal Customer Profile)."
     },
     {
       icon: (
@@ -29,7 +29,7 @@ export default function Prospects() {
         </svg>
       ),
       title: "AI-Powered Recommendations",
-      description: "Prospector suggests similar prospects based on your best-performing leads — helping you scale faster with smart targeting."
+      description: "Prospector suggests similar prospects based on your best-performing leads  helping you scale faster with smart targeting."
     },
     {
       icon: (
@@ -47,7 +47,7 @@ export default function Prospects() {
         </svg>
       ),
       title: "Technographics & Intent Insights",
-      description: "Filter companies based on tools they use or buying wins they show — so you reach out at the right time with the right message."
+      description: "Filter companies based on tools they use or buying wins they show  so you reach out at the right time with the right message."
     }
   ];
 
@@ -70,10 +70,10 @@ export default function Prospects() {
                 Find Your Ideal Prospects <span className="text-gradient-cefer">in Seconds</span>
               </h1>
               <p className="text-lg text-gray-700 mb-4 max-w-5xl mx-auto">
-                Cefer.io Prospector helps you discover verified B2B decision-makers based on precise filters — so you can focus on closing deals, not chasing dead leads.
+                Cefer.io Prospector helps you discover verified B2B decision-makers based on precise filters  so you can focus on closing deals, not chasing dead leads.
               </p>
               <p className="text-lg text-gray-700 max-w-5xl mx-auto">
-                <span className="font-semibold">Find, filter, and connect</span> with your next customer — all in one place.
+                <span className="font-semibold">Find, filter, and connect</span> with your next customer  all in one place.
               </p>
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function Prospects() {
             Prospector is your smart B2B lead generation engine inside Cefer.io. It combines verified global data with advanced AI-driven search, helping sales and marketing teams instantly identify their most valuable prospects across industries, company sizes, and roles.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Whether you're targeting startups, mid-market companies, or Fortune 500s — Cefer.io Prospector helps you build a qualified lead list in minutes.
+            Whether you're targeting startups, mid-market companies, or Fortune 500s  Cefer.io Prospector helps you build a qualified lead list in minutes.
           </p>
         </div>
       </section>
@@ -132,7 +132,7 @@ export default function Prospects() {
           <div className="py-2">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">AI-Powered Recommendations</h3>
             <p className="text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
-              A digital marketing agency wants to target CMOs and Growth leads at SaaS startups using HubSpot and generating $1M-$10M in revenue. They use Cefer.io Prospector to filter by industry, revenue, and tech stack — exporting 3,000+ verified contacts in minutes and boosting campaign response rates by 53%.
+              A digital marketing agency wants to target CMOs and Growth leads at SaaS startups using HubSpot and generating $1M-$10M in revenue. They use Cefer.io Prospector to filter by industry, revenue, and tech stack  exporting 3,000+ verified contacts in minutes and boosting campaign response rates by 53%.
             </p>
             <div className="grid md:grid-cols-3 gap-5 mt-10">
               <div className="bg-white rounded-2xl p-7 text-center border border-[#e8f0fe] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
