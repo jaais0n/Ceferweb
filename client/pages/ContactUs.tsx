@@ -215,10 +215,10 @@ export default function ContactUs() {
             {/* Social */}
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <p className="font-semibold text-gray-900 text-base mb-1">Stay Connected</p>
-              <p className="text-gray-500 text-xs mb-4">Follow us on LinkedIn, Twitter, and Facebook for the latest updates, product releases, and insights from the Cefer team.</p>
+              <p className="text-gray-500 text-xs mb-4">Follow us on LinkedIn, Instagram, and Facebook for the latest updates, product releases, and insights from the Cefer team.</p>
               <div className="flex items-center gap-3">
                 {/* LinkedIn */}
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://in.linkedin.com/company/cefer-io" target="_blank" rel="noopener noreferrer"
                   className="cefer-cta-social w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-[#0e7bf5] hover:text-[#0e7bf5] transition text-gray-500">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
@@ -226,7 +226,7 @@ export default function ContactUs() {
                   </svg>
                 </a>
                 {/* Instagram */}
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/cefer.io/" target="_blank" rel="noopener noreferrer"
                   className="cefer-cta-social w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-[#0e7bf5] hover:text-[#0e7bf5] transition text-gray-500">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" strokeWidth={1.8}/>
@@ -235,7 +235,7 @@ export default function ContactUs() {
                   </svg>
                 </a>
                 {/* Facebook */}
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.facebook.com/cefer.io" target="_blank" rel="noopener noreferrer"
                   className="cefer-cta-social w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:border-[#0e7bf5] hover:text-[#0e7bf5] transition text-gray-500">
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />

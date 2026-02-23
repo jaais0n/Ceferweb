@@ -3,10 +3,13 @@ import { Header } from "@/components/cefer/Header";
 import { Footer } from "@/components/cefer/Footer";
 
 export default function DataDeliveryAccess() {
+  const iconWrapperClasses =
+    "w-12 h-12 rounded-full bg-white shadow-[0_8px_24px_rgba(14,123,245,0.12)] ring-1 ring-[#e6f0ff] flex items-center justify-center shrink-0";
+  const iconSizeClass = "w-7 h-7 text-[#0e7bf5]";
   const accessMethods = [
     {
       icon: (
-        <svg width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={iconSizeClass} viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M28.8 0H3.2C1.44 0 0.016 1.4625 0.016 3.25L0 22.75C0 24.5375 1.44 26 3.2 26H28.8C30.56 26 32 24.5375 32 22.75V3.25C32 1.4625 30.56 0 28.8 0ZM28.8 6.5L16 14.625L3.2 6.5V3.25L16 11.375L28.8 3.25V6.5Z" fill="#0E7BF5"/>
 </svg>
       ),
@@ -15,7 +18,7 @@ export default function DataDeliveryAccess() {
     },
     {
       icon: (
-       <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <svg className={iconSizeClass} viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.16" d="M14.7775 1.50024C18.2988 1.50024 21.6762 2.89905 24.1662 5.38892C26.6562 7.87889 28.0558 11.2562 28.0558 14.7776C28.0558 18.299 26.6562 21.6762 24.1662 24.1663C21.6762 26.6563 18.299 28.0559 14.7775 28.0559C11.2562 28.0558 7.87883 26.6562 5.38885 24.1663C2.89899 21.6763 1.50018 18.2989 1.50018 14.7776C1.50026 11.2562 2.89888 7.87889 5.38885 5.38892C7.87883 2.89894 11.2562 1.50032 14.7775 1.50024Z" fill="#0E7BF5" fillOpacity="0.1" stroke="#0E7BF5"/>
 <path d="M32 32L24.5205 24.5205L32 32ZM24.5205 24.5205C25.7999 23.2411 26.8148 21.7222 27.5072 20.0506C28.1996 18.379 28.556 16.5873 28.556 14.778C28.556 12.9686 28.1996 11.177 27.5072 9.50537C26.8148 7.83375 25.7999 6.31488 24.5205 5.03548C23.2411 3.75607 21.7222 2.74119 20.0506 2.04879C18.379 1.35638 16.5873 1 14.778 1C12.9686 1 11.177 1.35638 9.50537 2.04879C7.83375 2.74119 6.31488 3.75607 5.03548 5.03548C2.4516 7.61935 1 11.1238 1 14.778C1 18.4321 2.4516 21.9366 5.03548 24.5205C7.61935 27.1043 11.1238 28.556 14.778 28.556C18.4321 28.556 21.9366 27.1043 24.5205 24.5205Z" fill="#0E7BF5" fillOpacity="0.1"/>
 <path d="M32 32L24.5205 24.5205M24.5205 24.5205C25.7999 23.2411 26.8148 21.7222 27.5072 20.0506C28.1996 18.379 28.556 16.5873 28.556 14.778C28.556 12.9686 28.1996 11.177 27.5072 9.50537C26.8148 7.83375 25.7999 6.31488 24.5205 5.03548C23.2411 3.75607 21.7222 2.74119 20.0506 2.04879C18.379 1.35638 16.5873 1 14.778 1C12.9686 1 11.177 1.35638 9.50537 2.04879C7.83375 2.74119 6.31488 3.75607 5.03548 5.03548C2.4516 7.61935 1 11.1238 1 14.778C1 18.4321 2.4516 21.9366 5.03548 24.5205C7.61935 27.1043 11.1238 28.556 14.778 28.556C18.4321 28.556 21.9366 27.1043 24.5205 24.5205Z" stroke="#0E7BF5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -26,7 +29,7 @@ export default function DataDeliveryAccess() {
     },
     {
       icon: (
-        <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={iconSizeClass} viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M1.7473 26.7212C1.55034 26.9047 1.28984 27.0046 1.02067 26.9998C0.751495 26.9951 0.494676 26.886 0.304315 26.6957C0.113953 26.5053 0.00491107 26.2485 0.000161871 25.9794C-0.00458733 25.7102 0.0953268 25.4497 0.278855 25.2527L3.06336 22.4669C1.99112 20.9805 1.80548 19.3292 2.02021 17.9093C2.2668 16.2858 3.04951 14.8617 3.74217 14.169L5.82016 12.0911C6.01497 11.8965 6.27905 11.7873 6.55438 11.7873C6.82971 11.7873 7.09379 11.8965 7.2886 12.0911L14.9079 19.7102C15.0044 19.8067 15.081 19.9213 15.1333 20.0473C15.1855 20.1734 15.2124 20.3086 15.2124 20.4451C15.2124 20.5816 15.1855 20.7168 15.1333 20.8428C15.081 20.9689 15.0044 21.0835 14.9079 21.18L12.8299 23.2579C12.1372 23.9506 10.7145 24.7333 9.09091 24.9798C7.67095 25.1946 6.01964 25.0075 4.53319 23.9353L1.7473 26.7212ZM12.1372 11.483C12.0421 11.585 11.9274 11.6669 11.8 11.7237C11.6725 11.7805 11.5349 11.811 11.3954 11.8135C11.2559 11.8159 11.1174 11.7903 10.988 11.738C10.8586 11.6858 10.7411 11.608 10.6424 11.5093C10.5438 11.4107 10.466 11.2932 10.4137 11.1638C10.3615 11.0344 10.3358 10.8959 10.3383 10.7564C10.3407 10.6168 10.3713 10.4793 10.4281 10.3518C10.4848 10.2244 10.5667 10.1097 10.6688 10.0146L12.7052 7.97818L12.0541 7.3271C11.8596 7.13229 11.7503 6.86822 11.7503 6.59289C11.7503 6.31757 11.8596 6.0535 12.0541 5.85869L14.1321 3.78076C14.8248 3.08811 16.2475 2.30542 17.8711 2.05884C19.2911 1.84412 20.9424 2.03114 22.4288 3.10335L25.2133 0.317532C25.3091 0.218256 25.4237 0.139052 25.5505 0.0845418C25.6772 0.0300316 25.8135 0.00130694 25.9515 4.357e-05C26.0894 -0.0012198 26.2263 0.0250035 26.354 0.0771835C26.4817 0.129363 26.5977 0.206455 26.6953 0.30396C26.7929 0.401465 26.8701 0.517431 26.9224 0.645091C26.9747 0.772751 27.0011 0.909549 27 1.0475C26.9988 1.18546 26.9702 1.3218 26.9158 1.44859C26.8615 1.57537 26.7824 1.69005 26.6832 1.78594L23.8987 4.57314C24.9709 6.05817 25.1593 7.70944 24.9432 9.13074C24.6966 10.7529 23.9139 12.1756 23.2212 12.8683L21.1432 14.9462C20.9484 15.1408 20.6844 15.25 20.409 15.25C20.1337 15.25 19.8696 15.1408 19.6748 14.9462L19.0237 14.2951L16.9873 16.3315C16.8921 16.4336 16.7774 16.5154 16.65 16.5722C16.5225 16.629 16.385 16.6595 16.2455 16.662C16.106 16.6645 15.9674 16.6388 15.838 16.5865C15.7086 16.5343 15.5911 16.4565 15.4924 16.3579C15.3938 16.2592 15.316 16.1417 15.2638 16.0123C15.2115 15.8829 15.1858 15.7444 15.1883 15.6049C15.1908 15.4654 15.2213 15.3278 15.2781 15.2003C15.3349 15.0729 15.4167 14.9582 15.5188 14.8631L17.5553 12.8267L14.1751 9.44659L12.1372 11.483Z" fill="#0E7BF5"/>
 </svg>
       ),
@@ -35,7 +38,7 @@ export default function DataDeliveryAccess() {
     },
     {
       icon: (
-        <svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={iconSizeClass} viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15 6V3C15 1.35 13.65 0 12 0H3C1.35 0 0 1.35 0 3V24C0 25.65 1.35 27 3 27H27C28.65 27 30 25.65 30 24V9C30 7.35 28.65 6 27 6H15ZM6 24H3V21H6V24ZM6 18H3V15H6V18ZM6 12H3V9H6V12ZM6 6H3V3H6V6ZM12 24H9V21H12V24ZM12 18H9V15H12V18ZM12 12H9V9H12V12ZM12 6H9V3H12V6ZM25.5 24H15V21H18V18H15V15H18V12H15V9H25.5C26.325 9 27 9.675 27 10.5V22.5C27 23.325 26.325 24 25.5 24ZM24 12H21V15H24V12ZM24 18H21V21H24V18Z" fill="#0E7BF5"/>
 </svg>
       ),
@@ -47,8 +50,8 @@ export default function DataDeliveryAccess() {
   const deliveryFeatures = [
     {
       icon: (
-        <svg className="w-6 h-6 text-[#0e7bf5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <svg className={iconSizeClass} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM16 18H8V16H16V18ZM16 14H8V12H16V14ZM13 9V3.5L18.5 9H13Z"/>
         </svg>
       ),
       title: "Flexible Formats",
@@ -56,8 +59,8 @@ export default function DataDeliveryAccess() {
     },
     {
       icon: (
-        <svg className="w-6 h-6 text-[#0e7bf5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        <svg className={iconSizeClass} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4V1L8 5L12 9V6C15.31 6 18 8.69 18 12C18 13.01 17.75 13.97 17.3 14.8L18.76 16.26C19.54 15.03 20 13.57 20 12C20 7.58 16.42 4 12 4ZM12 18C8.69 18 6 15.31 6 12C6 10.99 6.25 10.03 6.7 9.2L5.24 7.74C4.46 8.97 4 10.43 4 12C4 16.42 7.58 20 12 20V23L16 19L12 15V18Z"/>
         </svg>
       ),
       title: "Seamless CRM Sync",
@@ -65,8 +68,8 @@ export default function DataDeliveryAccess() {
     },
     {
       icon: (
-        <svg className="w-6 h-6 text-[#0e7bf5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <svg className={iconSizeClass} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"/>
         </svg>
       ),
       title: "Real-Time Updates",
@@ -74,8 +77,8 @@ export default function DataDeliveryAccess() {
     },
     {
       icon: (
-        <svg className="w-6 h-6 text-[#0e7bf5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
+        <svg className={iconSizeClass} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z"/>
         </svg>
       ),
       title: "Customizable Access",
@@ -125,7 +128,7 @@ export default function DataDeliveryAccess() {
           <div className="grid md:grid-cols-2 gap-8">
             {accessMethods.map((method, index) => (
               <div key={index} className="flex gap-4 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <div className="w-12 h-12 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.15)] flex items-center justify-center shrink-0">
+                <div className={iconWrapperClasses}>
                   {method.icon}
                 </div>
                 <div>
@@ -148,7 +151,7 @@ export default function DataDeliveryAccess() {
           <div className="grid md:grid-cols-2 gap-8">
             {deliveryFeatures.map((feature, index) => (
               <div key={index} className="flex gap-4 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                <div className="w-12 h-12 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.15)] flex items-center justify-center shrink-0">
+                <div className={iconWrapperClasses}>
                   {feature.icon}
                 </div>
                 <div>

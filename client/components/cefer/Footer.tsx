@@ -54,21 +54,21 @@ export function Footer() {
               <p className="text-sm font-semibold text-gray-900">Follow Us</p>
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://in.linkedin.com/company/cefer-io"
                   className="cefer-cta-social hover:opacity-70 transition-opacity"
                   aria-label="LinkedIn"
                 >
                   <img src="/LINKedin.svg" alt="LinkedIn" className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/cefer.io"
                   className="cefer-cta-social hover:opacity-70 transition-opacity"
                   aria-label="Facebook"
                 >
                   <img src="/FB.svg" alt="Facebook" className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/cefer.io/"
                   className="cefer-cta-social hover:opacity-70 transition-opacity"
                   aria-label="Instagram"
                 >
