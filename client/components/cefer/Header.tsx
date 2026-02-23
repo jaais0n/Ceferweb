@@ -289,12 +289,12 @@ export function Header() {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-6 text-base font-semibold tracking-tighter">
-          <Link to="/signin" className="my-auto text-cefer-black hover:text-cefer-blue transition-colors">Sign In</Link>
+        <div className="hidden md:flex items-center gap-10 text-base font-semibold tracking-tighter">
+          <Link to="/signin" className="my-auto leading-none text-cefer-black hover:text-cefer-blue transition-colors">Sign In</Link>
           <div className="glow-heartbeat flex flex-col justify-center px-1.5 py-1.5 text-white bg-cefer-blue bg-opacity-10 rounded-[82px]">
             <div className="flex flex-col justify-center p-0.5 bg-cefer-blue bg-opacity-40 rounded-[82px]">
               <div className="flex flex-col justify-center px-1 py-1 bg-cefer-blue bg-opacity-60 rounded-[82px]">
-            <Link to="/signup" className="px-7 py-3 bg-cefer-blue rounded-[82px] hover:bg-opacity-90 transition-opacity">Try Free</Link>
+            <Link to="/signup" className="px-7 py-3 bg-cefer-blue rounded-[82px] hover:bg-opacity-90 transition-opacity leading-none">Try Free</Link>
               </div>
             </div>
           </div>

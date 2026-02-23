@@ -9,6 +9,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Loading } from "@/components/cefer/Loading";
 import { AnnouncementBar } from "@/components/cefer/AnnouncementBar";
+import { PageTransition } from "@/components/cefer/PageTransition";
+import { NavProgressBar } from "@/components/cefer/NavProgressBar";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -58,9 +60,11 @@ const App = () => {
         <Sonner />
           <BrowserRouter>
             <ScrollToTop />
+            <NavProgressBar />
             <AnnouncementBar />
             <Loading />
             <Suspense fallback={null}>
+            <PageTransition>
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/signin" element={<Signin />} />
@@ -89,6 +93,7 @@ const App = () => {
               <Route path="/terms" element={<Terms />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            </PageTransition>
             </Suspense>
           </BrowserRouter>
       </TooltipProvider>
