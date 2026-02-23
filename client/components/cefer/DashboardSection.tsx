@@ -33,7 +33,7 @@ export function DashboardSection() {
           }}
         >
           <video
-            src="/dashvideo.mp4"
+            src="/Dashvideo.mp4"
             className="w-full h-full object-cover"
             autoPlay
             loop
