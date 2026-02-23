@@ -1,4 +1,4 @@
-ï»¿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Header } from "@/components/cefer/Header";
 import { Footer } from "@/components/cefer/Footer";
 
@@ -11,7 +11,7 @@ export default function IntentData() {
         </svg>
       ),
       title: "Buyer Intent Signals",
-      description: "Identify companies actively researching solutions like yours â€” see what they're searching for and when they're ready to buy."
+      description: "Identify companies actively researching solutions like yours — see what they're searching for and when they're ready to buy."
     },
     {
       icon: (
@@ -20,7 +20,7 @@ export default function IntentData() {
         </svg>
       ),
       title: "Real-Time Alerts",
-      description: "Get notified the moment a prospect shows buying intent â€” reach out at the perfect time to maximize conversion."
+      description: "Get notified the moment a prospect shows buying intent — reach out at the perfect time to maximize conversion."
     },
     {
       icon: (
@@ -38,7 +38,7 @@ export default function IntentData() {
         </svg>
       ),
       title: "Account-Based Insights",
-      description: "Track buyer intent at the account level â€” see which companies are in-market and prioritize high-value opportunities."
+      description: "Track buyer intent at the account level — see which companies are in-market and prioritize high-value opportunities."
     },
     {
       icon: (
@@ -70,7 +70,7 @@ export default function IntentData() {
                 Reach Prospects When <span className="text-gradient-cefer">They're Ready to Buy</span>
               </h1>
               <p className="text-lg text-gray-700 mb-4 max-w-5xl mx-auto">
-                Stop guessing who's interested. Cefer Intent Data identifies companies showing active buying signals â€” so you can engage the right prospects at the right time and close deals faster.
+                Stop guessing who's interested. Cefer Intent Data identifies companies showing active buying signals — so you can engage the right prospects at the right time and close deals faster.
               </p>
               <p className="text-lg text-gray-700 max-w-5xl mx-auto">
                 Prioritize buyers with intent and increase conversion rates by reaching them when they're actively researching solutions.
@@ -81,22 +81,22 @@ export default function IntentData() {
       </section>
 
       {/* What Is Intent Data */}
-      <section className="py-20 px-8">
+      <section className="py-14 md:py-20 px-4 md:px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             What Is <span className="text-gradient-cefer">Intent Data?</span>
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto mb-4">
-            Intent Data from Cefer.io tracks and analyzes online behavior to identify companies showing buying signals â€” including content consumption, keyword searches, competitor research, and technology adoption patterns.
+            Intent Data from Cefer.io tracks and analyzes online behavior to identify companies showing buying signals — including content consumption, keyword searches, competitor research, and technology adoption patterns.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-            Whether you're in sales, marketing, or account management â€” Intent Data helps you focus on prospects who are in-market and ready to engage.
+            Whether you're in sales, marketing, or account management — Intent Data helps you focus on prospects who are in-market and ready to engage.
           </p>
         </div>
       </section>
 
       {/* Key Features */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-14 md:py-20 px-4 md:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
             Key <span className="text-gradient-cefer">Features</span>
@@ -124,7 +124,7 @@ export default function IntentData() {
       </section>
 
       {/* Example Use Case */}
-      <section className="py-20 px-8">
+      <section className="py-14 md:py-20 px-4 md:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
             Example <span className="text-gradient-cefer">Use Case</span>
@@ -132,7 +132,7 @@ export default function IntentData() {
             <div className="py-2">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Example Use Case</h3>
             <p className="text-gray-700 leading-relaxed mb-8 text-center max-w-3xl mx-auto">
-              A B2B software company wants to target firms actively researching project management tools. Using Cefer Intent Data, they identify 500 companies showing strong intent, prioritize the hottest leads, and launch a highly targeted campaign â€” resulting in a 3x higher meeting-to-opportunity rate.
+              A B2B software company wants to target firms actively researching project management tools. Using Cefer Intent Data, they identify 500 companies showing strong intent, prioritize the hottest leads, and launch a highly targeted campaign — resulting in a 3x higher meeting-to-opportunity rate.
             </p>
             <div className="grid md:grid-cols-3 gap-5 mt-10">
               <div className="bg-white rounded-2xl p-7 text-center border border-[#e8f0fe] shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
@@ -168,20 +168,20 @@ export default function IntentData() {
       </section>
 
       {/* Why It Matters */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-14 md:py-20 px-4 md:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Why It <span className="text-gradient-cefer">Matters</span>
           </h2>
           <p className="text-xl text-gray-600 mb-8">Timing is everything in sales.</p>
           <p className="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            With Intent Data, you <span className="font-semibold">stop wasting time on cold leads</span> and focus on prospects who are actively shopping for solutions â€” dramatically improving conversion rates and shortening sales cycles.
+            With Intent Data, you <span className="font-semibold">stop wasting time on cold leads</span> and focus on prospects who are actively shopping for solutions — dramatically improving conversion rates and shortening sales cycles.
           </p>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-8 relative overflow-hidden" style={{ backgroundImage: "url(/bgcase.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="py-14 md:py-20 px-4 md:px-8 relative overflow-hidden" style={{ backgroundImage: "url(/bgcase.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-black mb-4">
             Start Selling with Intent Today
@@ -192,13 +192,13 @@ export default function IntentData() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/signup"
-              className="px-8 py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
             >
               Try Cefer.io Free
             </Link>
             <Link
               to="/demo"
-              className="px-8 py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
               Book a Demo
             </Link>
@@ -210,3 +210,4 @@ export default function IntentData() {
     </div>
   );
 }
+

@@ -146,12 +146,12 @@ export default function CaseStudies() {
               your success story here!
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="px-8 py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
+              <button className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors w-full sm:w-auto text-center">
                 Share Your Experience
               </button>
               <Link
                 to="/demo"
-                className="px-8 py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors w-full sm:w-auto text-center"
+                className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors w-full sm:w-auto text-center"
               >
                 Book a Demo
               </Link>
@@ -187,13 +187,13 @@ export default function CaseStudies() {
         <div className="flex flex-wrap justify-center gap-4">
           <Link
             to="/signup"
-            className="px-8 py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
+            className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
           >
             Try Cefer.io Free
           </Link>
           <Link
             to="/demo"
-            className="px-8 py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
+            className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
           >
             Book a Demo
           </Link>
@@ -205,3 +205,4 @@ export default function CaseStudies() {
     </div>
   );
 }
+

@@ -81,7 +81,7 @@ export default function EmailVerification() {
       </section>
 
       {/* What Is Email Verification */}
-      <section className="py-20 px-8">
+      <section className="py-14 md:py-20 px-4 md:px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             What Is <span className="text-gradient-cefer">Email Verification?</span>
@@ -96,7 +96,7 @@ export default function EmailVerification() {
       </section>
 
       {/* Key Features */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-14 md:py-20 px-4 md:px-8 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
             Key <span className="text-gradient-cefer">Features</span>
@@ -124,7 +124,7 @@ export default function EmailVerification() {
       </section>
 
       {/* Example Use Case */}
-      <section className="py-20 px-8">
+      <section className="py-14 md:py-20 px-4 md:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-12">
             Example <span className="text-gradient-cefer">Use Case</span>
@@ -167,7 +167,7 @@ export default function EmailVerification() {
       </section>
 
       {/* Why It Matters */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-14 md:py-20 px-4 md:px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Why It <span className="text-gradient-cefer">Matters</span>
@@ -180,7 +180,7 @@ export default function EmailVerification() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-8 relative overflow-hidden" style={{ backgroundImage: "url(/bgcase.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section className="py-14 md:py-20 px-4 md:px-8 relative overflow-hidden" style={{ backgroundImage: "url(/bgcase.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-black mb-4">
             Clean Your List Today
@@ -191,13 +191,13 @@ export default function EmailVerification() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               to="/signup"
-              className="px-8 py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
             >
               Try Cefer.io Free
             </Link>
             <Link
               to="/demo"
-              className="px-8 py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
               Book a Demo
             </Link>
@@ -209,3 +209,4 @@ export default function EmailVerification() {
     </div>
   );
 }
+

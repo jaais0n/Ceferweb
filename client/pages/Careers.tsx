@@ -213,14 +213,14 @@ export default function Careers() {
             <Link
               to="/contact"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="px-8 py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
             >
               Get in Touch
             </Link>
             <Link
               to="/about"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="px-8 py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
               Learn About Us
             </Link>
@@ -232,3 +232,4 @@ export default function Careers() {
     </div>
   );
 }
+
