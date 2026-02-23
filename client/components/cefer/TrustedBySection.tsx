@@ -2,14 +2,14 @@ import * as React from "react";
 
 export function TrustedBySection() {
     const companies = [
-        "Slack",
-        "Google",
-        "Microsoft",
-        "Amazon",
-        "LinkedIn",
-        "Zoom",
-        "Salesforce",
-        "HubSpot",
+        { name: "Microsoft", logo: "/logos/microsoft.svg" },
+        { name: "Amazon", logo: "/logos/amazon.svg" },
+        { name: "LinkedIn", logo: "/logos/linkedin.svg" },
+        { name: "Zoom", logo: "/logos/zoom.svg" },
+        { name: "Salesforce", logo: "/logos/salesforce.svg" },
+        { name: "HubSpot", logo: "/logos/hubspot.svg" },
+        { name: "Slack", logo: "/logos/slack.svg" },
+        { name: "Google", logo: "/logos/google.svg" },
     ];
 
     return (
@@ -31,10 +31,16 @@ export function TrustedBySection() {
                         <React.Fragment key={set}>
                             {companies.map((company) => (
                                 <div
-                                    key={`${set}-${company}`}
-                                    className="flex-shrink-0 text-gray-400 hover:text-gray-700 transition-colors duration-300 text-2xl md:text-3xl font-bold"
+                                    key={`${set}-${company.name}`}
+                                    className="flex-shrink-0 flex items-center"
                                 >
-                                    {company}
+                                    <img
+                                        src={company.logo}
+                                        alt={`${company.name} logo`}
+                                        title={company.name}
+                                        loading="lazy"
+                                        className="h-7 md:h-8 lg:h-9 w-auto opacity-60 grayscale hover:opacity-90 hover:grayscale-0 transition"
+                                    />
                                 </div>
                             ))}
                         </React.Fragment>
