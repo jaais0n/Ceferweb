@@ -10,8 +10,7 @@ const distPath = path.join(__dirname, "../spa");
 
 app.use(express.static(distPath));
 
-// Use regex to match all routes
-app.get(/.*/, (req, res) => {
+app.get("*", (req, res) => {
   if (req.path.startsWith("/api/") || req.path.startsWith("/health")) {
     return res.status(404).json({ error: "Not found" });
   }
