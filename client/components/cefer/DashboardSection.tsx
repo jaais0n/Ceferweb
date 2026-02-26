@@ -1,3 +1,4 @@
+"use client";
 export function DashboardSection() {
   return (
     <section className="flex flex-col items-center w-full px-4 py-6 md:py-16 relative z-10">

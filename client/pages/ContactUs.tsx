@@ -1,7 +1,6 @@
+"use client";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+import Link from "next/link";
 
 export default function ContactUs() {
   const [form, setForm] = useState({
@@ -24,10 +23,6 @@ export default function ContactUs() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky header */}
-      <div className="sticky top-0 z-50 py-2 bg-neutral-50 shadow-sm drop-shadow-sm">
-        <Header />
-      </div>
 
       {/* ── Hero ── */}
       <section className="py-16 px-4">
@@ -204,7 +199,7 @@ export default function ContactUs() {
               <p className="font-semibold text-gray-900 text-base mb-1">General Inquiries</p>
               <p className="text-gray-500 text-xs mb-4">Visit our Help Centre for tutorials, FAQs, and troubleshooting guides to get immediate support.</p>
               <Link
-                to="/help"
+                href="/help"
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="w-full flex items-center justify-center py-2.5 rounded-xl bg-gray-900 text-white text-sm font-semibold hover:bg-gray-700 transition cefer-cta cefer-cta-lg"
               >
@@ -258,13 +253,13 @@ export default function ContactUs() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/signup"
+              href="/signup"
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
             >
               Try Cefer.io Free
             </Link>
             <Link
-              to="/demo"
+              href="/demo"
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
               Book a Demo
@@ -273,7 +268,6 @@ export default function ContactUs() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+"use client";
 
 interface FeatureCardProps {
   icon: string;

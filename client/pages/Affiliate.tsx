@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+"use client";
+import Link from "next/link";
 
 const benefits = [
   {
@@ -70,9 +69,6 @@ export default function Affiliate() {
   return (
     <div className="min-h-screen bg-white">
       {/* Sticky header */}
-      <div className="sticky top-0 z-50 py-2 bg-neutral-50 shadow-sm drop-shadow-sm">
-        <Header />
-      </div>
 
       {/* ── Hero ── */}
       <section className="py-16 px-4">
@@ -189,7 +185,7 @@ export default function Affiliate() {
               Join the Affiliate Program
             </a>
             <Link
-              to="/demo"
+              href="/demo"
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
               Book a Demo
@@ -198,7 +194,6 @@ export default function Affiliate() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

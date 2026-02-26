@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/case-studies/page": "app/case-studies/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/data-delivery-access/page": "app/data-delivery-access/page.js",
+  "/data-quality/page": "app/data-quality/page.js",
+  "/page": "app/page.js",
+  "/prospector/page": "app/prospector/page.js"
+}

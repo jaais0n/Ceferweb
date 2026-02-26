@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+"use client";
+import Link from "next/link";
 
 const yourRights = [
   "Request deletion of your personal information",
@@ -27,10 +26,6 @@ const requestItems = [
 export default function DoNotSell() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky header */}
-      <div className="sticky top-0 z-50 py-2 bg-neutral-50 shadow-sm drop-shadow-sm">
-        <Header />
-      </div>
 
       {/* ── Hero Banner ── */}
       <section className="py-16 px-2">
@@ -115,7 +110,7 @@ export default function DoNotSell() {
             To submit your data removal or opt-out request, please contact us using the button below. We'll guide you through the process and ensure your request is processed within <span className="font-semibold text-gray-700">30 days</span>.
           </p>
           <Link
-            to="/contact"
+            href="/contact"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="inline-flex items-center gap-2 px-7 py-3 bg-[#0e7bf5] text-white font-semibold rounded-full hover:bg-blue-600 transition-colors text-sm"
           >
@@ -228,14 +223,14 @@ export default function DoNotSell() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/contact"
+              href="/contact"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
             >
               Contact Us
             </Link>
             <Link
-              to="/privacy"
+              href="/privacy"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
@@ -245,7 +240,6 @@ export default function DoNotSell() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

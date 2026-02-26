@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 
 const features = [
   {
@@ -104,7 +105,7 @@ export function FeaturesSection() {
         {features.map((feature, index) => (
           <Link 
             key={index} 
-            to={feature.route} 
+            href={feature.route} 
             className="no-underline"
             onClick={() => {
               window.scrollTo(0, 0);

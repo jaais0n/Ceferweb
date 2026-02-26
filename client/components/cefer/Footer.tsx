@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 
 export function Footer() {
   const platformItems = [
@@ -89,42 +90,42 @@ export function Footer() {
             <h4 className="font-semibold text-gray-900 mb-2 md:mb-4">Platform</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/prospector" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/prospector" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Prospector
                 </Link>
               </li>
               <li>
-                <Link to="/data-enrichment" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/data-enrichment" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Data Enrichment
                 </Link>
               </li>
               <li>
-                <Link to="/chrome-extension" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/chrome-extension" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Chrome Extension
                 </Link>
               </li>
               <li>
-                <Link to="/api-docs" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/api-docs" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   API Docs
                 </Link>
               </li>
               <li>
-                <Link to="/email-verification" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/email-verification" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Email Verification
                 </Link>
               </li>
               <li>
-                <Link to="/technographics" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/technographics" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Technographics
                 </Link>
               </li>
               <li>
-                <Link to="/email-finder" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/email-finder" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Email Finder
                 </Link>
               </li>
               <li>
-                <Link to="/intent-data" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/intent-data" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Intent Data
                 </Link>
               </li>
@@ -136,17 +137,17 @@ export function Footer() {
             <h4 className="font-semibold text-gray-900 mb-2 md:mb-4">Our Data</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/data-points-coverage" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/data-points-coverage" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Data Points & Coverage
                 </Link>
               </li>
               <li>
-                <Link to="/data-delivery-access" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/data-delivery-access" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Data Delivery & Access
                 </Link>
               </li>
               <li>
-                <Link to="/data-quality" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                <Link prefetch={true} href="/data-quality" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
                   Data Quality
                 </Link>
               </li>
@@ -157,31 +158,26 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-gray-900 mb-2 md:mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
-              {resourceItems.map((item) => (
-                <li key={item}>
-                  {item === "Blog" ? (
-                    <Link to="/blog" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </Link>
-                  ) : item === "Case Studies" ? (
-                    <Link to="/case-studies" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </Link>
-                  ) : item === "Help Center" ? (
-                    <Link to="/help" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </Link>
-                  ) : item === "Careers" ? (
-                    <Link to="/careers" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </Link>
-                  ) : (
-                    <a href="#" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </a>
-                  )}
-                </li>
-              ))}
+              <li>
+                <Link prefetch={true} href="/blog" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link prefetch={true} href="/case-studies" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link prefetch={true} href="/help" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                  Help Center
+                </Link>
+              </li>
+              <li>
+                <Link prefetch={true} href="/careers" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                  Careers
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -189,31 +185,26 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-gray-900 mb-2 md:mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
-              {companyItems.map((item) => (
-                <li key={item}>
-                  {item === "About" ? (
-                    <Link to="/about" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </Link>
-                  ) : item === "Contact" ? (
-                    <Link to="/contact" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </Link>
-                  ) : item === "Affiliate Program" ? (
-                    <Link to="/affiliate" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </Link>
-                  ) : item === "Pricing" ? (
-                    <Link to="/demo" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </Link>
-                  ) : (
-                    <a href="#" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
-                      {item}
-                    </a>
-                  )}
-                </li>
-              ))}
+              <li>
+                <Link prefetch={true} href="/about" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link prefetch={true} href="/contact" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link prefetch={true} href="/affiliate" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                  Affiliate Program
+                </Link>
+              </li>
+              <li>
+                <Link prefetch={true} href="/demo" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+                  Pricing
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -224,13 +215,13 @@ export function Footer() {
             (c) 2026 Cefer.io. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
-            <Link to="/terms" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+            <Link prefetch={true} href="/terms" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
               Terms and Conditions
             </Link>
-            <Link to="/privacy" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+            <Link prefetch={true} href="/privacy" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/do-not-sell" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
+            <Link prefetch={true} href="/do-not-sell" className="text-gray-600 hover:text-[#0e7bf5] transition-colors">
               Do Not Sell My Personal Information
             </Link>
           </div>

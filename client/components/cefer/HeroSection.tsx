@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useHeroTrigger, useCountUp, useScrambleText } from "@/hooks/useHeroAnimation";
 
@@ -301,16 +302,30 @@ function BgCards({ trigger }: { trigger: number }) {
 
 export function HeroSection() {
   const trigger = useHeroTrigger();
+  const [animReady, setAnimReady] = useState(false);
+
+  // Defer all decorative animations until the browser is idle
+  // This prevents them from competing with LCP and blocking the main thread
+  useEffect(() => {
+    const cb = () => setAnimReady(true);
+    if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+      (window as Window & { requestIdleCallback: (cb: () => void, opts?: object) => void })
+        .requestIdleCallback(cb, { timeout: 1500 });
+    } else {
+      setTimeout(cb, 300);
+    }
+  }, []);
 
   return (
     <section className="relative w-full overflow-visible">
 
-      {/* Blurred background decorative cards – animated */}
-      <BgCards trigger={trigger} />
+      {/* Blurred background decorative cards – deferred until idle */}
+      {animReady && <BgCards trigger={trigger} />}
 
       <div className="max-w-[1200px] mx-auto px-6 pt-16 pb-8 relative">
 
-        {/* ── Animated Floating Cards – Left ── */}
+        {/* ── Animated Floating Cards – Left – deferred until idle ── */}
+        {animReady && (
         <div className="absolute left-[calc(50%_-_50vw)] top-[20%] hidden lg:flex flex-col gap-6 z-10 pointer-events-none select-none">
           <SlideCard direction="left" delay={0} trigger={trigger}
             wrapperClass="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-5 w-[170px] transform -rotate-6 -translate-x-4 border border-slate-100">
@@ -365,8 +380,10 @@ export function HeroSection() {
             </div>
           </SlideCard>
         </div>
+        )}
 
-        {/* ── Animated Floating Cards – Right ── */}
+        {/* ── Animated Floating Cards – Right – deferred until idle ── */}
+        {animReady && (
         <div className="absolute right-[calc(50%_-_50vw)] top-[10%] hidden lg:flex flex-col gap-4 z-10 pointer-events-none select-none">
           <SlideCard direction="right" delay={100} trigger={trigger}
             wrapperClass="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-5 w-[190px] transform rotate-3 translate-x-4 border border-slate-100">
@@ -414,6 +431,7 @@ export function HeroSection() {
             </div>
           </SlideCard>
         </div>
+        )}
 
         {/* Main Hero Content */}
         <div className="relative z-10 text-center max-w-[800px] mx-auto">
@@ -432,7 +450,7 @@ export function HeroSection() {
             <span className="flex items-center gap-1.5"><span className="text-[#F54C0E] text-sm">★</span> Real-Time Intent Data</span>
           </div>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link to="/signup" className="inline-flex items-center justify-center px-8 py-3.5 text-white text-base font-semibold rounded-full cefer-cta cefer-cta-lg cefer-btn-primary">
+            <Link href="/signup" className="inline-flex items-center justify-center px-8 py-3.5 text-white text-base font-semibold rounded-full cefer-cta cefer-cta-lg cefer-btn-primary">
               Try Cefer.io Free
             </Link>
             <button className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-cefer-black text-base font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors cefer-cta cefer-cta-lg">
@@ -443,7 +461,7 @@ export function HeroSection() {
 
         {/* Curved Arrow */}
         <div className="absolute right-[15%] bottom-[-270px] hidden lg:block pointer-events-none select-none z-20">
-          <img src="/Arrow.svg" alt="Arrow pointing to dashboard" className="w-[390px] h-auto transform rotate-[12deg] opacity-80" />
+          <img src="/Arrow.svg" alt="Arrow pointing to dashboard" width={390} height={220} className="w-[390px] h-auto transform rotate-[12deg] opacity-80" />
         </div>
       </div>
     </section>

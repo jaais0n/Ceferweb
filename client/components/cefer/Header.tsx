@@ -1,5 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { createPortal } from "react-dom";
 
 export function Header() {
   const [showPlatformDropdown, setShowPlatformDropdown] = useState(false);
@@ -19,6 +22,7 @@ export function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const wrapperRef = useRef<HTMLElement | null>(null);
   const lastScrollY = useRef(0);
+  const mobileMenuOpenRef = useRef(false);
 
   const platformItems = [
     { title: "Prospects", path: "/prospector" },
@@ -58,16 +62,17 @@ export function Header() {
 
   const menuItems = ["Platform", "Our Data", "Resources", "Pricing", "Company"];
 
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
   const shouldEnableAutoHide = !isHomePage;
   const [isPlatformPage, setIsPlatformPage] = useState(false);
+  const isMounted = useRef(false);
 
   // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileExpanded(null);
-  }, [location.pathname]);
+  }, [pathname]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -77,7 +82,7 @@ export function Header() {
 
   // Sync active tab with current route
   useEffect(() => {
-    const path = location.pathname || "/";
+    const path = pathname || "/";
     const platformPaths = platformItems.map((p) => p.path);
     const ourDataPaths = dataItems.map((d) => d.path);
     setIsPlatformPage([...platformPaths, ...ourDataPaths].some((pp) => path.startsWith(pp)));
@@ -89,10 +94,10 @@ export function Header() {
     const looksLikeCompany = companyPaths.some((pp) => path.startsWith(pp));
 
     if (path === "/") {
-      setAllowTransition(false);
+      setAllowTransition(isMounted.current);
       setActiveTab("Platform");
     } else {
-      setAllowTransition(false);
+      setAllowTransition(isMounted.current);
 
       if (looksLikePlatform) {
         setActiveTab("Platform");
@@ -111,12 +116,22 @@ export function Header() {
       if (dropdownTimeoutRef.current) {
         clearTimeout(dropdownTimeoutRef.current);
       }
+      isMounted.current = true;
     };
-  }, [location.pathname]);
+  }, [pathname]);
 
   useLayoutEffect(() => {
     wrapperRef.current = headerRef.current?.parentElement ?? null;
-  }, [location.pathname]);
+  }, [pathname]);
+
+  // Keep ref in sync with mobileMenuOpen state
+  useEffect(() => {
+    mobileMenuOpenRef.current = mobileMenuOpen;
+    // When mobile menu opens, force header visible
+    if (mobileMenuOpen && wrapperRef.current) {
+      wrapperRef.current.style.transform = "translateY(0)";
+    }
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const wrapper = wrapperRef.current;
@@ -131,6 +146,8 @@ export function Header() {
     lastScrollY.current = window.scrollY;
 
     const handleScroll = () => {
+      // Don't auto-hide while mobile menu is open
+      if (mobileMenuOpenRef.current) return;
       const currentScroll = window.scrollY;
       if (Math.abs(currentScroll - lastScrollY.current) < 10) {
         return;
@@ -226,22 +243,25 @@ export function Header() {
         className={`flex items-center justify-between mx-auto max-w-7xl w-full px-4 md:px-8 transition-all ${isPlatformPage ? "py-3" : "py-6"}`}
       >
         {/* Logo */}
-        <a
+        <Link
           href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            try { (window as any).triggerLoading?.("/"); }
-            catch {}
-            window.location.href = "/";
+          onClick={() => {
+            if (pathname === "/") {
+              // Already on home — just scroll to top
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              try { (window as any).triggerLoading?.(); }
+              catch { }
+            }
           }}
         >
           <img src="/Ceferlogo.png" alt="Cefer Logo" className="object-contain shrink-0 h-14 w-auto cursor-pointer" />
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <nav
           ref={navRef}
-          className="hidden md:flex items-center gap-1 p-1 rounded-full relative bg-white shadow-sm border border-neutral-100"
+          className="hidden lg:flex items-center gap-1 p-1 rounded-full relative bg-white shadow-sm border border-neutral-100"
         >
           <div
             className={`absolute bg-cefer-blue rounded-full pointer-events-none ${allowTransition ? "transition-all duration-300 ease-out" : ""} ${displayTab ? "opacity-100" : "opacity-0"}`}
@@ -266,22 +286,22 @@ export function Header() {
               </div>
               {item === "Platform" && showPlatformDropdown && (
                 <div className="absolute top-full left-0 mt-3 w-64 bg-white rounded-2xl shadow-xl border border-neutral-100 py-2 z-50" style={{ animation: "fadeIn 0.2s ease-out forwards" }} onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
-                  {platformItems.map((pi) => <Link key={pi.title} to={pi.path} onClick={() => { navigationLockRef.current = true; setActiveTab("Platform"); setTimeout(() => (navigationLockRef.current = false), 400); }} className="block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0e7bf5] transition-all duration-150 font-medium rounded-lg mx-2">{pi.title}</Link>)}
+                  {platformItems.map((pi) => <Link prefetch={true} key={pi.title} href={pi.path} onClick={() => { navigationLockRef.current = true; setActiveTab("Platform"); setTimeout(() => (navigationLockRef.current = false), 400); }} className="block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0e7bf5] transition-all duration-150 font-medium rounded-lg mx-2">{pi.title}</Link>)}
                 </div>
               )}
               {item === "Our Data" && showDataDropdown && (
                 <div className="absolute top-full left-0 mt-3 w-64 bg-white rounded-2xl shadow-xl border border-neutral-100 py-2 z-50" style={{ animation: "fadeIn 0.2s ease-out forwards" }} onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
-                  {dataItems.map((di) => <Link key={di.title} to={di.path} onClick={() => { navigationLockRef.current = true; setActiveTab("Our Data"); setTimeout(() => (navigationLockRef.current = false), 400); }} className="block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0e7bf5] transition-all duration-150 font-medium rounded-lg mx-2">{di.title}</Link>)}
+                  {dataItems.map((di) => <Link prefetch={true} key={di.title} href={di.path} onClick={() => { navigationLockRef.current = true; setActiveTab("Our Data"); setTimeout(() => (navigationLockRef.current = false), 400); }} className="block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0e7bf5] transition-all duration-150 font-medium rounded-lg mx-2">{di.title}</Link>)}
                 </div>
               )}
               {item === "Resources" && showResourcesDropdown && (
                 <div className="absolute top-full left-0 mt-3 w-64 bg-white rounded-2xl shadow-xl border border-neutral-100 py-2 z-50" style={{ animation: "fadeIn 0.2s ease-out forwards" }} onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
-                  {resourceItems.map((ri) => <Link key={ri.title} to={ri.path} onClick={() => { navigationLockRef.current = true; setActiveTab("Resources"); setTimeout(() => (navigationLockRef.current = false), 400); }} className="block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0e7bf5] transition-all duration-150 font-medium rounded-lg mx-2">{ri.title}</Link>)}
+                  {resourceItems.map((ri) => <Link prefetch={true} key={ri.title} href={ri.path} onClick={() => { navigationLockRef.current = true; setActiveTab("Resources"); setTimeout(() => (navigationLockRef.current = false), 400); }} className="block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0e7bf5] transition-all duration-150 font-medium rounded-lg mx-2">{ri.title}</Link>)}
                 </div>
               )}
               {item === "Company" && showCompanyDropdown && (
                 <div className="absolute top-full left-0 mt-3 w-64 bg-white rounded-2xl shadow-xl border border-neutral-100 py-2 z-50" style={{ animation: "fadeIn 0.2s ease-out forwards" }} onMouseEnter={handleDropdownMouseEnter} onMouseLeave={handleDropdownMouseLeave}>
-                  {companyItems.map((ci) => <Link key={ci.title} to={ci.path} onClick={() => { navigationLockRef.current = true; setActiveTab("Company"); setTimeout(() => (navigationLockRef.current = false), 400); }} className="block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0e7bf5] transition-all duration-150 font-medium rounded-lg mx-2">{ci.title}</Link>)}
+                  {companyItems.map((ci) => <Link prefetch={true} key={ci.title} href={ci.path} onClick={() => { navigationLockRef.current = true; setActiveTab("Company"); setTimeout(() => (navigationLockRef.current = false), 400); }} className="block px-6 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0e7bf5] transition-all duration-150 font-medium rounded-lg mx-2">{ci.title}</Link>)}
                 </div>
               )}
             </div>
@@ -289,12 +309,12 @@ export function Header() {
         </nav>
 
         {/* Desktop CTAs */}
-        <div className="hidden md:flex items-center gap-10 text-base font-semibold tracking-tighter">
-          <Link to="/signin" className="my-auto leading-none text-cefer-black hover:text-cefer-blue transition-colors">Sign In</Link>
+        <div className="hidden lg:flex items-center gap-10 text-base font-semibold tracking-tighter">
+          <Link href="/signin" className="my-auto leading-none text-cefer-black hover:text-cefer-blue transition-colors">Sign In</Link>
           <div className="glow-heartbeat flex flex-col justify-center px-1.5 py-1.5 text-white bg-cefer-blue bg-opacity-10 rounded-[82px]">
             <div className="flex flex-col justify-center p-0.5 bg-cefer-blue bg-opacity-40 rounded-[82px]">
               <div className="flex flex-col justify-center px-1 py-1 bg-cefer-blue bg-opacity-60 rounded-[82px]">
-            <Link to="/signup" className="px-7 py-3 bg-cefer-blue rounded-[82px] hover:bg-opacity-90 transition-opacity leading-none">Try Free</Link>
+                <Link href="/signup" className="px-7 py-3 bg-cefer-blue rounded-[82px] hover:bg-opacity-90 transition-opacity leading-none">Try Free</Link>
               </div>
             </div>
           </div>
@@ -303,7 +323,7 @@ export function Header() {
         {/* Mobile: Hamburger Menu */}
         <button
           onClick={() => setMobileMenuOpen((v) => !v)}
-          className="flex md:hidden w-11 h-11 flex-col items-center justify-center gap-[5px] rounded-xl bg-cefer-black"
+          className="flex lg:hidden w-11 h-11 flex-col items-center justify-center gap-[5px] rounded-xl bg-cefer-black"
           aria-label="Toggle menu"
         >
           <span className={`block h-[2px] w-5 bg-white rounded-full transition-all duration-300 origin-center ${mobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
@@ -312,56 +332,65 @@ export function Header() {
         </button>
       </header>
 
-      {/* Mobile Backdrop */}
-      <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        style={{ background: "rgba(0,0,0,0.4)", backdropFilter: "blur(3px)" }}
-        onClick={() => setMobileMenuOpen(false)}
-      />
-
-      {/* Mobile Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[85vw] max-w-sm z-50 md:hidden flex flex-col bg-white shadow-2xl transition-transform duration-300 ease-out ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
-        {/* Scrollable nav items */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 pt-6 space-y-1">
-          {mobileGroups.map((group) => (
-            <div key={group.label}>
-              <button
-                className="w-full flex items-center justify-between px-4 py-3.5 font-semibold text-gray-800 hover:bg-blue-50 hover:text-[#0e7bf5] transition-colors rounded-2xl"
-                onClick={() => setMobileExpanded(mobileExpanded === group.label ? null : group.label)}
-              >
-                <span>{group.label}</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={`transition-transform duration-200 ${mobileExpanded === group.label ? "rotate-180" : ""}`}>
-                  <path d="M3 5.5L8 10.5L13 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              <div className={`overflow-hidden transition-all duration-300 ${mobileExpanded === group.label ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
-                <div className="pl-4 pb-2 space-y-0.5">
-                  {group.items.map((item) => (
-                    <Link
-                      key={item.title}
-                      to={item.path}
-                      className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:text-[#0e7bf5] hover:bg-blue-50 rounded-xl transition-colors font-medium"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#0e7bf5] opacity-60 shrink-0" />
-                      {item.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-
-          {/* Pricing standalone */}
-          <Link
-            to="/pricing"
-            className="w-full flex items-center justify-between px-4 py-3.5 font-semibold text-gray-800 hover:bg-blue-50 hover:text-[#0e7bf5] transition-colors rounded-2xl"
+      {/* Mobile Backdrop + Drawer — portaled to body to escape header transform context */}
+      {mobileMenuOpen && createPortal(
+        <>
+          {/* Mobile Backdrop */}
+          <div
+            className="fixed inset-0 z-[9990] lg:hidden opacity-100 pointer-events-auto animate-[fadeIn_0.3s_ease]"
+            style={{ background: "rgba(0,0,0,0.4)", backdropFilter: "blur(3px)" }}
             onClick={() => setMobileMenuOpen(false)}
-          >
-            <span>Pricing</span>
-            <div className="w-4 h-4" />
-          </Link>
-        </div>
-      </div>
+          />
+
+          {/* Mobile Drawer */}
+          <div className="fixed top-0 right-0 h-full w-[85vw] max-w-sm z-[9991] lg:hidden flex flex-col bg-white shadow-2xl animate-[slideInRight_0.3s_ease-out]">
+            {/* Scrollable nav items */}
+            <div className="flex-1 overflow-y-auto px-4 py-4 pt-6 space-y-1">
+              {mobileGroups.map((group) => (
+                <div key={group.label}>
+                  <button
+                    className="w-full flex items-center justify-between px-4 py-3.5 font-semibold text-gray-800 hover:bg-blue-50 hover:text-[#0e7bf5] transition-colors rounded-2xl"
+                    onClick={() => setMobileExpanded(mobileExpanded === group.label ? null : group.label)}
+                  >
+                    <span>{group.label}</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className={`transition-transform duration-200 ${mobileExpanded === group.label ? "rotate-180" : ""}`}>
+                      <path d="M3 5.5L8 10.5L13 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <div className={`overflow-hidden transition-all duration-300 ${mobileExpanded === group.label ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}>
+                    <div className="pl-4 pb-2 space-y-0.5">
+                      {group.items.map((item) => (
+                        <Link
+                          prefetch={true}
+                          key={item.title}
+                          href={item.path}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:text-[#0e7bf5] hover:bg-blue-50 rounded-xl transition-colors font-medium"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#0e7bf5] opacity-60 shrink-0" />
+                          {item.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Pricing standalone */}
+              <Link
+                prefetch={true}
+                href="/pricing"
+                className="w-full flex items-center justify-between px-4 py-3.5 font-semibold text-gray-800 hover:bg-blue-50 hover:text-[#0e7bf5] transition-colors rounded-2xl"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span>Pricing</span>
+                <div className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </>,
+        document.body
+      )}
     </>
   );
 }

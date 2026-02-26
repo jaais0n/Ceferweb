@@ -1,7 +1,8 @@
-import { useLocation } from "react-router-dom";
+"use client";
+import { usePathname } from "next/navigation";
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
 
   return (
     <div key={pathname} className="page-transition">

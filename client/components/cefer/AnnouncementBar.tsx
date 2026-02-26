@@ -1,5 +1,6 @@
+"use client";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 interface AnnouncementBarProps {
   className?: string;
@@ -15,7 +16,7 @@ export function AnnouncementBar({ className }: AnnouncementBarProps) {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 py-2.5 pr-11 text-center text-[13px] sm:text-sm font-medium leading-snug">
         Download our new browser extension - click here
         <Link
-          to="/chrome-extension"
+          href="/chrome-extension"
           className="ml-1.5 underline underline-offset-2 font-semibold hover:text-white/90 whitespace-nowrap"
         >
           Get the extension

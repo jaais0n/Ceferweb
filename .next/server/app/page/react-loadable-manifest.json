@@ -1,0 +1,80 @@
+{
+  "[project]/client/components/cefer/StatsSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/StatsSection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/client_components_cefer_StatsSection_tsx_f01a29f4._.js",
+      "static/chunks/client_components_cefer_StatsSection_tsx_5f2096da._.js"
+    ]
+  },
+  "[project]/client/components/cefer/DashboardSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/DashboardSection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/client_components_cefer_DashboardSection_tsx_ab93b1be._.js",
+      "static/chunks/client_components_cefer_DashboardSection_tsx_5f2096da._.js"
+    ]
+  },
+  "[project]/client/components/ui/sonner.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/ui/sonner.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/_8b23bbb8._.js",
+      "static/chunks/client_components_ui_sonner_tsx_60bd7d4e._.js"
+    ]
+  },
+  "[project]/client/components/cefer/FaqSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/FaqSection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/_f132a5c0._.js",
+      "static/chunks/client_components_cefer_FaqSection_tsx_5f2096da._.js"
+    ]
+  },
+  "[project]/client/components/cefer/CtaSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/CtaSection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/client_components_cefer_CtaSection_tsx_fb35f37d._.js",
+      "static/chunks/client_components_cefer_CtaSection_tsx_5f2096da._.js"
+    ]
+  },
+  "[project]/client/components/cefer/FeaturesSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/FeaturesSection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/client_components_cefer_FeaturesSection_tsx_d7770c3c._.js",
+      "static/chunks/client_components_cefer_FeaturesSection_tsx_5f2096da._.js"
+    ]
+  },
+  "[project]/client/components/cefer/HowItWorksSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/HowItWorksSection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/client_components_cefer_HowItWorksSection_tsx_107a132c._.js",
+      "static/chunks/client_components_cefer_HowItWorksSection_tsx_5f2096da._.js"
+    ]
+  },
+  "[project]/client/components/cefer/PoweringGrowthSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/PoweringGrowthSection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/client_components_cefer_PoweringGrowthSection_tsx_521ea226._.js",
+      "static/chunks/client_components_cefer_PoweringGrowthSection_tsx_5f2096da._.js"
+    ]
+  },
+  "[project]/client/components/ui/toaster.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/ui/toaster.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/node_modules__pnpm_ea7f264c._.js",
+      "static/chunks/client_c54b5e76._.js",
+      "static/chunks/client_components_ui_toaster_tsx_60bd7d4e._.js"
+    ]
+  },
+  "[project]/client/components/cefer/WhyCeferSection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/WhyCeferSection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/client_components_cefer_WhyCeferSection_tsx_dae67802._.js",
+      "static/chunks/client_components_cefer_WhyCeferSection_tsx_5f2096da._.js"
+    ]
+  },
+  "[project]/client/components/cefer/TrustedBySection.tsx [app-client] (ecmascript, next/dynamic entry)": {
+    "id": "[project]/client/components/cefer/TrustedBySection.tsx [app-client] (ecmascript, next/dynamic entry)",
+    "files": [
+      "static/chunks/client_components_cefer_TrustedBySection_tsx_105873a9._.js",
+      "static/chunks/client_components_cefer_TrustedBySection_tsx_5f2096da._.js"
+    ]
+  }
+}

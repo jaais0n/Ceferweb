@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+"use client";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,9 +8,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 export default function Signin() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="sticky top-0 z-50 py-2 bg-neutral-50 shadow-sm drop-shadow-sm">
-        <Header />
-      </div>
 
       <div className="flex flex-col items-center justify-center py-20 px-4">
         <Card className="w-full max-w-md border-none shadow-xl rounded-3xl overflow-hidden p-4">
@@ -29,7 +25,7 @@ export default function Signin() {
             <div className="grid gap-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <Link to="/forgot-password" className="text-sm text-[#0e7bf5] hover:underline">
+                <Link href="/forgot-password" className="text-sm text-[#0e7bf5] hover:underline">
                   Forgot password?
                 </Link>
               </div>
@@ -69,7 +65,7 @@ export default function Signin() {
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center text-sm text-gray-500">
               Don't have an account?{" "}
-              <Link to="/signup" className="text-[#0e7bf5] font-semibold hover:underline">
+              <Link href="/signup" className="text-[#0e7bf5] font-semibold hover:underline">
                 Sign up
               </Link>
             </div>
@@ -77,7 +73,6 @@ export default function Signin() {
         </Card>
       </div>
 
-      <Footer />
     </div>
   );
 }

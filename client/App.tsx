@@ -10,7 +10,6 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Loading } from "@/components/cefer/Loading";
 import { AnnouncementBar } from "@/components/cefer/AnnouncementBar";
 import { PageTransition } from "@/components/cefer/PageTransition";
-import { NavProgressBar } from "@/components/cefer/NavProgressBar";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -58,44 +57,43 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-          <BrowserRouter>
-            <ScrollToTop />
-            <NavProgressBar />
-            <AnnouncementBar />
-            <Loading />
-            <Suspense fallback={null}>
+        <BrowserRouter>
+          <ScrollToTop />
+          <AnnouncementBar />
+          <Loading />
+          <Suspense fallback={null}>
             <PageTransition>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/signin" element={<Signin />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/demo" element={<Placeholder />} />
-              <Route path="/privacy" element={<Privacy />} />
-              <Route path="/do-not-sell" element={<DoNotSell />} />
-              <Route path="/prospector" element={<Prospects />} />
-              <Route path="/data-enrichment" element={<DataEnrichment />} />
-              <Route path="/chrome-extension" element={<ChromeExtension />} />
-              <Route path="/api-docs" element={<API />} />
-              <Route path="/email-verification" element={<EmailVerification />} />
-              <Route path="/technographics" element={<Technographics />} />
-              <Route path="/email-finder" element={<EmailFinder />} />
-              <Route path="/intent-data" element={<IntentData />} />
-              <Route path="/data-points-coverage" element={<DataPointsCoverage />} />
-              <Route path="/data-delivery-access" element={<DataDeliveryAccess />} />
-              <Route path="/data-quality" element={<DataQuality />} />
-              <Route path="/case-studies" element={<CaseStudies />} />
-              <Route path="/help" element={<HelpCenter />} />
-              <Route path="/about" element={<AboutUs />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/affiliate" element={<Affiliate />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/terms" element={<Terms />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/signin" element={<Signin />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/demo" element={<Placeholder />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/do-not-sell" element={<DoNotSell />} />
+                <Route path="/prospector" element={<Prospects />} />
+                <Route path="/data-enrichment" element={<DataEnrichment />} />
+                <Route path="/chrome-extension" element={<ChromeExtension />} />
+                <Route path="/api-docs" element={<API />} />
+                <Route path="/email-verification" element={<EmailVerification />} />
+                <Route path="/technographics" element={<Technographics />} />
+                <Route path="/email-finder" element={<EmailFinder />} />
+                <Route path="/intent-data" element={<IntentData />} />
+                <Route path="/data-points-coverage" element={<DataPointsCoverage />} />
+                <Route path="/data-delivery-access" element={<DataDeliveryAccess />} />
+                <Route path="/data-quality" element={<DataQuality />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/help" element={<HelpCenter />} />
+                <Route path="/about" element={<AboutUs />} />
+                <Route path="/contact" element={<ContactUs />} />
+                <Route path="/affiliate" element={<Affiliate />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
             </PageTransition>
-            </Suspense>
-          </BrowserRouter>
+          </Suspense>
+        </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );

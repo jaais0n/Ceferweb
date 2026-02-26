@@ -1,5 +1,6 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 /**
  * Thin blue progress bar at the top of the page.
@@ -7,7 +8,7 @@ import { useLocation } from "react-router-dom";
  * - Triggers on same-page link clicks (so user gets feedback even when nothing changes)
  */
 export function NavProgressBar() {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
   const [width, setWidth] = useState(0);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -70,8 +71,8 @@ export function NavProgressBar() {
         transition: width === 100
           ? "width 0.25s ease"
           : width === 80
-          ? "width 0.3s cubic-bezier(0.4,0,0.2,1)"
-          : "none",
+            ? "width 0.3s cubic-bezier(0.4,0,0.2,1)"
+            : "none",
         boxShadow: "0 0 8px rgba(59,130,246,0.7)",
       }}
     />

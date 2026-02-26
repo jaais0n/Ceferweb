@@ -1,0 +1,25 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push([typeof document === "object" ? document.currentScript : undefined,
+"[project]/client/components/ui/toaster.tsx [app-client] (ecmascript, next/dynamic entry, async loader)", ((__turbopack_context__) => {
+
+__turbopack_context__.v((parentImport) => {
+    return Promise.all([
+  "static/chunks/node_modules__pnpm_ea7f264c._.js",
+  "static/chunks/client_c54b5e76._.js",
+  "static/chunks/client_components_ui_toaster_tsx_60bd7d4e._.js"
+].map((chunk) => __turbopack_context__.l(chunk))).then(() => {
+        return parentImport("[project]/client/components/ui/toaster.tsx [app-client] (ecmascript, next/dynamic entry)");
+    });
+});
+}),
+"[project]/client/components/ui/sonner.tsx [app-client] (ecmascript, next/dynamic entry, async loader)", ((__turbopack_context__) => {
+
+__turbopack_context__.v((parentImport) => {
+    return Promise.all([
+  "static/chunks/_8b23bbb8._.js",
+  "static/chunks/client_components_ui_sonner_tsx_60bd7d4e._.js"
+].map((chunk) => __turbopack_context__.l(chunk))).then(() => {
+        return parentImport("[project]/client/components/ui/sonner.tsx [app-client] (ecmascript, next/dynamic entry)");
+    });
+});
+}),
+]);

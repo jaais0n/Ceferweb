@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+"use client";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,9 +8,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 export default function Signup() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="sticky top-0 z-50 py-2 bg-neutral-50 shadow-sm drop-shadow-sm">
-        <Header />
-      </div>
 
       <div className="flex flex-col items-center justify-center py-20 px-4">
         <Card className="w-full max-w-md border-none shadow-xl rounded-3xl overflow-hidden p-4">
@@ -74,17 +70,17 @@ export default function Signup() {
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center text-sm text-gray-500">
               Already have an account?{" "}
-              <Link to="/signin" className="text-[#0e7bf5] font-semibold hover:underline">
+              <Link href="/signin" className="text-[#0e7bf5] font-semibold hover:underline">
                 Sign in
               </Link>
             </div>
             <p className="px-8 text-center text-xs text-gray-500 leading-relaxed">
               By clicking continue, you agree to our{" "}
-              <Link to="/terms" className="underline underline-offset-4 hover:text-[#0e7bf5]">
+              <Link href="/terms" className="underline underline-offset-4 hover:text-[#0e7bf5]">
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link to="/privacy" className="underline underline-offset-4 hover:text-[#0e7bf5]">
+              <Link href="/privacy" className="underline underline-offset-4 hover:text-[#0e7bf5]">
                 Privacy Policy
               </Link>
               .
@@ -93,7 +89,6 @@ export default function Signup() {
         </Card>
       </div>
 
-      <Footer />
     </div>
   );
 }

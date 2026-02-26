@@ -2,7 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: ["./client/**/*.{ts,tsx}"],
+  content: ["./app/**/*.{ts,tsx}", "./client/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Manrope", "system-ui", "sans-serif"],
+        sans: ["var(--font-manrope)", "Manrope", "system-ui", "sans-serif"],
       },
       colors: {
         cefer: {

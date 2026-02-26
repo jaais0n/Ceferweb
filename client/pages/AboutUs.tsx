@@ -1,7 +1,6 @@
+"use client";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+import Link from "next/link";
 
 // --- What Sets Us Apart data ---
 const differentiators = [
@@ -37,10 +36,6 @@ export default function AboutUs() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Sticky header */}
-      <div className="sticky top-0 z-50 py-2 bg-neutral-50 shadow-sm drop-shadow-sm">
-        <Header />
-      </div>
 
       {/* ── Hero ── */}
       <section className="py-16 px-2">
@@ -280,14 +275,14 @@ export default function AboutUs() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/signup"
+              href="/signup"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
             >
               Get Started Today
             </Link>
             <Link
-              to="/demo"
+              href="/demo"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
@@ -297,7 +292,6 @@ export default function AboutUs() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

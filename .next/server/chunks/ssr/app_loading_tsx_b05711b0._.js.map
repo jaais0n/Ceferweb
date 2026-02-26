@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/Jaison/Desktop/Projects/Ceferweb/app/loading.tsx"],"sourcesContent":["export default function Loading() {\r\n  return (\r\n    <div className=\"fixed top-0 left-0 right-0 h-0.5 bg-blue-600 animate-pulse z-[9999]\" />\r\n  );\r\n}\r\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8WAAC;QAAI,WAAU;;;;;;AAEnB","debugId":null}}]
+}

@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 
 interface FooterColumnProps {
   title: string;
@@ -17,7 +18,7 @@ export function FooterColumn({ title, items }: FooterColumnProps) {
           return (
             <Link
               key={index}
-              to={path}
+              href={path}
               className="hover:text-cefer-blue transition-all duration-200"
             >
               {item}

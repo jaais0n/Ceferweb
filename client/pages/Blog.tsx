@@ -1,7 +1,6 @@
+"use client";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+import Link from "next/link";
 
 const allPosts = [
   {
@@ -121,9 +120,6 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <div className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-neutral-100">
-        <Header />
-      </div>
 
       {/* Hero Section */}
       <section className="py-16 px-2">
@@ -176,38 +172,37 @@ export default function Blog() {
       {/* Featured post */}
       <section className="max-w-[1800px] mx-auto w-full px-4 md:px-8 py-12 md:py-16">
         <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">Featured Post</h2>
-        <div className="grid md:grid-cols-2 gap-8 items-center bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-          <div className="aspect-[16/10] overflow-hidden">
-            <img
-              src={featured.image}
-              alt={featured.title}
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div className="p-8 md:pr-10">
-            <div className="flex flex-wrap gap-2 mb-4">
-              {featured.tags.map((t) => (
-                <span key={t} className={`px-3 py-1 rounded-full text-xs font-semibold ${tagColors[t] ?? "bg-gray-100 text-gray-600"}`}>{t}</span>
-              ))}
+        <Link href={`/blog/${featured.id}`} className="block">
+          <div className="grid md:grid-cols-2 gap-8 items-center bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer">
+            <div className="aspect-[16/10] overflow-hidden">
+              <img
+                src={featured.image}
+                alt={featured.title}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-snug">
-              {featured.title}
-            </h3>
-            <p className="text-gray-500 text-sm leading-relaxed mb-6">{featured.excerpt}</p>
-            <div className="flex items-center justify-between">
-              <p className="text-xs text-gray-400 font-medium">{featured.author} · {featured.date}</p>
-              <Link
-                to={`/blog/${featured.id}`}
-                className="flex items-center gap-1.5 text-[#0e7bf5] text-sm font-semibold hover:gap-2.5 transition-all"
-              >
-                Read more
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M1 7h12M8 2l5 5-5 5" stroke="#0e7bf5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Link>
+            <div className="p-8 md:pr-10">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {featured.tags.map((t) => (
+                  <span key={t} className={`px-3 py-1 rounded-full text-xs font-semibold ${tagColors[t] ?? "bg-gray-100 text-gray-600"}`}>{t}</span>
+                ))}
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3 leading-snug">
+                {featured.title}
+              </h3>
+              <p className="text-gray-500 text-sm leading-relaxed mb-6">{featured.excerpt}</p>
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-gray-400 font-medium">{featured.author} · {featured.date}</p>
+                <div className="flex items-center gap-1.5 text-[#0e7bf5] text-sm font-semibold hover:gap-2.5 transition-all">
+                  Read more
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path d="M1 7h12M8 2l5 5-5 5" stroke="#0e7bf5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </section>
 
       {/* All posts grid */}
@@ -215,30 +210,32 @@ export default function Blog() {
         <h2 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">All Posts</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {pagePosts.map((post) => (
-            <article key={post.id} className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all overflow-hidden flex flex-col">
-              <div className="aspect-[16/9] overflow-hidden">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 flex flex-col flex-1">
-                <p className="text-xs text-gray-400 mb-3 font-medium">{post.author} · {post.date}</p>
-                <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug flex items-start justify-between gap-2">
-                  {post.title}
-                  <svg className="shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" width="14" height="14" viewBox="0 0 14 14" fill="none">
-                    <path d="M2 2h10v10M2 12L12 2" stroke="#0e7bf5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-5 flex-1 line-clamp-3">{post.excerpt}</p>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((t) => (
-                    <span key={t} className={`px-3 py-1 rounded-full text-xs font-semibold ${tagColors[t] ?? "bg-gray-100 text-gray-600"}`}>{t}</span>
-                  ))}
+            <Link href={`/blog/${post.id}`} key={post.id}>
+              <article className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all overflow-hidden flex flex-col h-full cursor-pointer">
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-              </div>
-            </article>
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-xs text-gray-400 mb-3 font-medium">{post.author} · {post.date}</p>
+                  <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug flex items-start justify-between gap-2">
+                    {post.title}
+                    <svg className="shrink-0 mt-0.5 opacity-0 group-hover:opacity-100 transition-opacity" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 2h10v10M2 12L12 2" stroke="#0e7bf5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-5 flex-1 line-clamp-3">{post.excerpt}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((t) => (
+                      <span key={t} className={`px-3 py-1 rounded-full text-xs font-semibold ${tagColors[t] ?? "bg-gray-100 text-gray-600"}`}>{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
 
@@ -251,7 +248,7 @@ export default function Blog() {
               className="flex items-center gap-1.5 px-4 py-2 rounded-full border border-gray-200 text-sm font-medium text-gray-600 hover:border-[#0e7bf5] hover:text-[#0e7bf5] disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M9 2L4 7l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               Previous
             </button>
@@ -259,11 +256,10 @@ export default function Blog() {
               <button
                 key={p}
                 onClick={() => setPage(p)}
-                className={`w-9 h-9 rounded-full text-sm font-semibold transition-colors ${
-                  page === p
-                    ? "bg-[#0e7bf5] text-white"
-                    : "border border-gray-200 text-gray-600 hover:border-[#0e7bf5] hover:text-[#0e7bf5]"
-                }`}
+                className={`w-9 h-9 rounded-full text-sm font-semibold transition-colors ${page === p
+                  ? "bg-[#0e7bf5] text-white"
+                  : "border border-gray-200 text-gray-600 hover:border-[#0e7bf5] hover:text-[#0e7bf5]"
+                  }`}
               >
                 {p}
               </button>
@@ -275,7 +271,7 @@ export default function Blog() {
             >
               Next
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M5 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
@@ -293,17 +289,16 @@ export default function Blog() {
           </h2>
           <p className="text-gray-500 mb-8 text-lg">Start finding your ideal customers today. No credit card required.</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/signup" className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors">
+            <Link href="/signup" className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-[#1C1C1C] text-white font-semibold rounded-full hover:bg-gray-800 transition-colors">
               Try Cefer.io Free
             </Link>
-            <Link to="/demo" className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors">
+            <Link href="/demo" className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:bg-gray-50 transition-colors">
               Book a Demo
             </Link>
           </div>
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

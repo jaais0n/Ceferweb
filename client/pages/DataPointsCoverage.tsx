@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+"use client";
+import Link from "next/link";
 
 export default function DataPointsCoverage() {
   const whatWeProvide = [
@@ -97,9 +96,6 @@ export default function DataPointsCoverage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="sticky top-0 z-50 py-2 bg-neutral-50 shadow-sm drop-shadow-sm">
-        <Header />
-      </div>
 
       {/* Hero Section */}
       <section className="py-16 px-2">
@@ -253,13 +249,13 @@ export default function DataPointsCoverage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
-              to="/signup"
+              href="/signup"
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
             >
               Get Started Today
             </Link>
             <Link
-              to="/demo"
+              href="/demo"
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
               Book a Demo
@@ -268,7 +264,6 @@ export default function DataPointsCoverage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }

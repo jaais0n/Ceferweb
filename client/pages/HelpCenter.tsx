@@ -1,7 +1,6 @@
+"use client";
 import { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Header } from "@/components/cefer/Header";
-import { Footer } from "@/components/cefer/Footer";
+import Link from "next/link";
 
 // --- FAQ data ---
 const faqs = [
@@ -280,9 +279,6 @@ export default function HelpCenter() {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="sticky top-0 z-50 py-2 bg-neutral-50 shadow-sm drop-shadow-sm">
-        <Header />
-      </div>
 
       {/* Hero */}
       <section className="py-16 px-2">
@@ -369,7 +365,7 @@ export default function HelpCenter() {
               {categories.map((cat) => (
                 <Link
                   key={cat.label}
-                  to={cat.path}
+                  href={cat.path}
                   onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                   className="flex flex-col items-center justify-center gap-3 p-6 rounded-2xl border border-gray-200 bg-white hover:border-[#0e7bf5] hover:shadow-md transition-all duration-200 group"
                 >
@@ -427,7 +423,7 @@ export default function HelpCenter() {
               Email Support
             </a>
             <Link
-              to="/prospector"
+              href="/prospector"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
             >
@@ -437,7 +433,6 @@ export default function HelpCenter() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
