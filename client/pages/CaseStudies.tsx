@@ -12,12 +12,16 @@ const caseStudyTopics = [
 export default function CaseStudies() {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-  // Use a small, fixed set of generic sample images (not derived from topic text)
+  // ─── LOCAL IMAGES ──────────────────────────────────────────────
+  // Place your images in:  public/case-studies/
+  // Name them:             case-study-1.png, case-study-2.png, etc.
+  // They will be served at /case-studies/case-study-1.png
+  // ───────────────────────────────────────────────────────────────
   const sampleImages = [
-    "https://picsum.photos/900/600?random=101",
-    "https://picsum.photos/900/600?random=102",
-    "https://picsum.photos/900/600?random=103",
-    "https://picsum.photos/900/600?random=104",
+    "/case-studies/case1.png",
+    "/case-studies/case2.png",
+    "/case-studies/case3.png",
+    "/case-studies/case4.png",
   ];
 
   const sampleImageFor = (i: number) => sampleImages[i % sampleImages.length];
@@ -71,11 +75,10 @@ export default function CaseStudies() {
                 tabIndex={0}
                 onClick={() => setSelectedIndex(i)}
                 onKeyDown={(e) => e.key === "Enter" && setSelectedIndex(i)}
-                className={`py-4 text-sm md:text-base cursor-pointer select-none transition-colors ${
-                  selectedIndex === i
+                className={`py-4 text-sm md:text-base cursor-pointer select-none transition-colors ${selectedIndex === i
                     ? "text-gray-800 font-medium"
                     : "text-gray-400 hover:text-gray-600 font-medium"
-                }`}
+                  }`}
               >
                 {topic}
               </p>
@@ -83,11 +86,11 @@ export default function CaseStudies() {
           </div>
 
           {/* Image placeholder */}
-          <div className="flex-1 w-full rounded-2xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center min-h-[200px] md:min-h-[280px]">
+          <div className="flex-1 w-full rounded-2xl overflow-hidden shadow-lg bg-gray-100 aspect-[4/3]">
             <img
               src={sampleImage}
               alt="Case study preview"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
               onError={(e) => {
                 const img = e.target as HTMLImageElement;
                 if (img.src.endsWith("/placeholder.svg")) {
@@ -174,26 +177,26 @@ export default function CaseStudies() {
       {/* CTA Section */}
       <section className="w-full px-4 py-16 relative overflow-hidden" style={{ backgroundImage: "url(/bgcase.png)", backgroundSize: "cover", backgroundPosition: "center" }}>
         <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-black mb-3">
-          Cefer is live — Start using it
-        </h2>
-        <p className="text-gray-500 mb-8 text-sm md:text-base">
-          We believe in transparency — no made-up stories, no fluff.
-        </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href="/signup"
-            className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
-          >
-            Try Cefer.io Free
-          </Link>
-          <Link
-            href="/demo"
-            className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
-          >
-            Book a Demo
-          </Link>
-        </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-black mb-3">
+            Cefer is live — Start using it
+          </h2>
+          <p className="text-gray-500 mb-8 text-sm md:text-base">
+            We believe in transparency — no made-up stories, no fluff.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link
+              href="/signup"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-cefer-black text-white font-semibold rounded-full hover:bg-gray-800 transition-colors"
+            >
+              Try Cefer.io Free
+            </Link>
+            <Link
+              href="/demo"
+              className="w-full sm:w-auto text-center px-6 sm:px-8 py-3.5 sm:py-4 bg-transparent text-gray-900 font-semibold rounded-full border-2 border-[#1C1C1C] hover:border-[#1C1C1C] transition-colors"
+            >
+              Book a Demo
+            </Link>
+          </div>
         </div>
       </section>
 

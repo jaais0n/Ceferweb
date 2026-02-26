@@ -1,74 +1,83 @@
 {
   "app\\providers.tsx -> @/components/ui/sonner": {
-    "id": "app\\providers.tsx -> @/components/ui/sonner",
+    "id": 6846,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_ui_sonner_tsx.js"
+      "static/chunks/6852.66e8940c0bb1a9c7.js",
+      "static/chunks/6846.fb293e643efc15a7.js"
     ]
   },
   "app\\providers.tsx -> @/components/ui/toaster": {
-    "id": "app\\providers.tsx -> @/components/ui/toaster",
+    "id": 3139,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_ui_toaster_tsx.js"
+      "static/chunks/8161.b4b53925fd28fc56.js",
+      "static/chunks/3139.8a910220c286fdab.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/CtaSection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/CtaSection",
+    "id": 7381,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_CtaSection_tsx.js"
+      "static/chunks/7381.489d0582174f9df7.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/DashboardSection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/DashboardSection",
+    "id": 9847,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_DashboardSection_tsx.js"
+      "static/chunks/9847.c1ab8eafc290ef70.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/FaqSection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/FaqSection",
+    "id": 2268,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_FaqSection_tsx.js"
+      "static/chunks/8161.b4b53925fd28fc56.js",
+      "static/chunks/2268.7bdd668fd9e8b941.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/FeaturesSection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/FeaturesSection",
+    "id": 2032,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_FeaturesSection_tsx.js"
+      "static/chunks/2032.c434fb8bbb2a06d4.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/HowItWorksSection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/HowItWorksSection",
+    "id": 6104,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_HowItWorksSection_tsx.js"
+      "static/chunks/6104.c4295abf9bad4ef8.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/PoweringGrowthSection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/PoweringGrowthSection",
+    "id": 7923,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_PoweringGrowthSection_tsx.js"
+      "static/chunks/7923.04f4f9c1922175a8.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/StatsSection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/StatsSection",
+    "id": 9868,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_StatsSection_tsx.js"
+      "static/chunks/9868.480859ccacb94e6d.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/TrustedBySection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/TrustedBySection",
+    "id": 8025,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_TrustedBySection_tsx.js"
+      "static/chunks/8025.fb44d9a4b6614755.js"
     ]
   },
   "client\\pages\\Index.tsx -> @/components/cefer/WhyCeferSection": {
-    "id": "client\\pages\\Index.tsx -> @/components/cefer/WhyCeferSection",
+    "id": 5860,
     "files": [
-      "static/chunks/_app-pages-browser_client_components_cefer_WhyCeferSection_tsx.js"
+      "static/chunks/5860.83e75849104bc54d.js"
     ]
   },
-  "node_modules\\.pnpm\\next@15.5.12_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts": {
-    "id": "node_modules\\.pnpm\\next@15.5.12_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts",
+  "node_modules\\.pnpm\\next@15.5.12_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 2035,
     "files": [
-      "static/chunks/_app-pages-browser_node_modules_pnpm_next_15_5_12_react-dom_18_3_1_react_18_3_1__react_18_3_1-bf87ae.js"
+      "static/chunks/2035.bbda1323f1e23e10.js"
+    ]
+  },
+  "node_modules\\.pnpm\\next@15.5.12_react-dom@18.3.1_react@18.3.1__react@18.3.1\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 8814,
+    "files": [
+      "static/chunks/8814.0bb83c3c1a38aede.js"
     ]
   }
 }

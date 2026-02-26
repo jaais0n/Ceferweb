@@ -129,9 +129,9 @@ function hasAdjacentParameterIssues(route) {
 function normalizeAdjacentParameters(route) {
     let normalized = route;
     // Handle interception route patterns: (.):param -> (.)_NEXTSEP_:param
-    normalized = normalized.replace(/(\([^)]*\)):([^/\s]+)/g, "$1".concat(PARAM_SEPARATOR, ":$2"));
+    normalized = normalized.replace(/(\([^)]*\)):([^/\s]+)/g, `$1${PARAM_SEPARATOR}:$2`);
     // Handle other adjacent parameter patterns: :param1:param2 -> :param1_NEXTSEP_:param2
-    normalized = normalized.replace(/:([^:/\s)]+)(?=:)/g, ":$1".concat(PARAM_SEPARATOR));
+    normalized = normalized.replace(/:([^:/\s)]+)(?=:)/g, `:$1${PARAM_SEPARATOR}`);
     return normalized;
 }
 function normalizeTokensForRegexp(tokens) {
@@ -161,10 +161,10 @@ function stripParameterSeparators(params) {
     for (const [key, value] of Object.entries(params)){
         if (typeof value === 'string') {
             // Remove the separator if it appears at the start of parameter values
-            cleaned[key] = value.replace(new RegExp("^".concat(PARAM_SEPARATOR)), '');
+            cleaned[key] = value.replace(new RegExp(`^${PARAM_SEPARATOR}`), '');
         } else if (Array.isArray(value)) {
             // Handle array parameters (from repeated route segments)
-            cleaned[key] = value.map((item)=>typeof item === 'string' ? item.replace(new RegExp("^".concat(PARAM_SEPARATOR)), '') : item);
+            cleaned[key] = value.map((item)=>typeof item === 'string' ? item.replace(new RegExp(`^${PARAM_SEPARATOR}`), '') : item);
         } else {
             cleaned[key] = value;
         }
@@ -439,7 +439,7 @@ const NEXT_CACHE_IMPLICIT_TAG_ID = '_N_T_';
 const CACHE_ONE_YEAR = 31536000;
 const INFINITE_CACHE = 0xfffffffe;
 const MIDDLEWARE_FILENAME = 'middleware';
-const MIDDLEWARE_LOCATION_REGEXP = "(?:src/)?".concat(MIDDLEWARE_FILENAME);
+const MIDDLEWARE_LOCATION_REGEXP = `(?:src/)?${MIDDLEWARE_FILENAME}`;
 const INSTRUMENTATION_HOOK_FILENAME = 'instrumentation';
 const PAGES_DIR_ALIAS = 'private-next-pages';
 const DOT_NEXT_ALIAS = 'private-dot-next';
@@ -452,18 +452,18 @@ const RSC_CACHE_WRAPPER_ALIAS = 'private-next-rsc-cache-wrapper';
 const RSC_DYNAMIC_IMPORT_WRAPPER_ALIAS = 'private-next-rsc-track-dynamic-import';
 const RSC_ACTION_ENCRYPTION_ALIAS = 'private-next-rsc-action-encryption';
 const RSC_ACTION_CLIENT_WRAPPER_ALIAS = 'private-next-rsc-action-client-wrapper';
-const PUBLIC_DIR_MIDDLEWARE_CONFLICT = "You can not have a '_next' folder inside of your public folder. This conflicts with the internal '/_next' route. https://nextjs.org/docs/messages/public-next-folder-conflict";
-const SSG_GET_INITIAL_PROPS_CONFLICT = "You can not use getInitialProps with getStaticProps. To use SSG, please remove your getInitialProps";
-const SERVER_PROPS_GET_INIT_PROPS_CONFLICT = "You can not use getInitialProps with getServerSideProps. Please remove getInitialProps.";
-const SERVER_PROPS_SSG_CONFLICT = "You can not use getStaticProps or getStaticPaths with getServerSideProps. To use SSG, please remove getServerSideProps";
-const STATIC_STATUS_PAGE_GET_INITIAL_PROPS_ERROR = "can not have getInitialProps/getServerSideProps, https://nextjs.org/docs/messages/404-get-initial-props";
-const SERVER_PROPS_EXPORT_ERROR = "pages with `getServerSideProps` can not be exported. See more info here: https://nextjs.org/docs/messages/gssp-export";
+const PUBLIC_DIR_MIDDLEWARE_CONFLICT = `You can not have a '_next' folder inside of your public folder. This conflicts with the internal '/_next' route. https://nextjs.org/docs/messages/public-next-folder-conflict`;
+const SSG_GET_INITIAL_PROPS_CONFLICT = `You can not use getInitialProps with getStaticProps. To use SSG, please remove your getInitialProps`;
+const SERVER_PROPS_GET_INIT_PROPS_CONFLICT = `You can not use getInitialProps with getServerSideProps. Please remove getInitialProps.`;
+const SERVER_PROPS_SSG_CONFLICT = `You can not use getStaticProps or getStaticPaths with getServerSideProps. To use SSG, please remove getServerSideProps`;
+const STATIC_STATUS_PAGE_GET_INITIAL_PROPS_ERROR = `can not have getInitialProps/getServerSideProps, https://nextjs.org/docs/messages/404-get-initial-props`;
+const SERVER_PROPS_EXPORT_ERROR = `pages with \`getServerSideProps\` can not be exported. See more info here: https://nextjs.org/docs/messages/gssp-export`;
 const GSP_NO_RETURNED_VALUE = 'Your `getStaticProps` function did not return an object. Did you forget to add a `return`?';
 const GSSP_NO_RETURNED_VALUE = 'Your `getServerSideProps` function did not return an object. Did you forget to add a `return`?';
 const UNSTABLE_REVALIDATE_RENAME_ERROR = 'The `unstable_revalidate` property is available for general use.\n' + 'Please use `revalidate` instead.';
-const GSSP_COMPONENT_MEMBER_ERROR = "can not be attached to a page's component and must be exported from the page. See more info here: https://nextjs.org/docs/messages/gssp-component-member";
-const NON_STANDARD_NODE_ENV = 'You are using a non-standard "NODE_ENV" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env';
-const SSG_FALLBACK_EXPORT_ERROR = "Pages with `fallback` enabled in `getStaticPaths` can not be exported. See more info here: https://nextjs.org/docs/messages/ssg-fallback-true-export";
+const GSSP_COMPONENT_MEMBER_ERROR = `can not be attached to a page's component and must be exported from the page. See more info here: https://nextjs.org/docs/messages/gssp-component-member`;
+const NON_STANDARD_NODE_ENV = `You are using a non-standard "NODE_ENV" value in your environment. This creates inconsistencies in the project and is strongly advised against. Read more: https://nextjs.org/docs/messages/non-standard-node-env`;
+const SSG_FALLBACK_EXPORT_ERROR = `Pages with \`fallback\` enabled in \`getStaticPaths\` can not be exported. See more info here: https://nextjs.org/docs/messages/ssg-fallback-true-export`;
 const ESLINT_DEFAULT_DIRS = [
     'app',
     'pages',
@@ -681,7 +681,7 @@ if ("TURBOPACK compile-time truthy", 1) {
     // could potentially cause frame drops during development.
     const THRESHOLD = 16;
     if (duration > THRESHOLD) {
-        console.log("[".concat(measureName, "] Slow execution detected: ").concat(duration.toFixed(0), "ms (Note: Code download overhead is not included in this measurement)"));
+        console.log(`[${measureName}] Slow execution detected: ${duration.toFixed(0)}ms (Note: Code download overhead is not included in this measurement)`);
     }
 } else //TURBOPACK unreachable
 ;
@@ -1843,7 +1843,7 @@ function getFilesystemFrame(frame) {
         if (f.file.startsWith('/') || // Win32:
         /^[a-z]:\\/i.test(f.file) || // Win32 UNC:
         f.file.startsWith('\\\\')) {
-            f.file = "file://".concat(f.file);
+            f.file = `file://${f.file}`;
         }
     }
     return f;
@@ -1872,21 +1872,21 @@ function getServerError(error, type) {
     }
     n.name = error.name;
     try {
-        n.stack = "".concat(n.toString(), "\n").concat((0, _stacktraceparser.parse)(error.stack).map(getFilesystemFrame).map((f)=>{
-            let str = "    at ".concat(f.methodName);
+        n.stack = `${n.toString()}\n${(0, _stacktraceparser.parse)(error.stack).map(getFilesystemFrame).map((f)=>{
+            let str = `    at ${f.methodName}`;
             if (f.file) {
                 let loc = f.file;
                 if (f.lineNumber) {
-                    loc += ":".concat(f.lineNumber);
+                    loc += `:${f.lineNumber}`;
                     if (f.column) {
-                        loc += ":".concat(f.column);
+                        loc += `:${f.column}`;
                     }
                 }
-                str += " (".concat(loc, ")");
+                str += ` (${loc})`;
             }
             return str;
-        }).join('\n'));
-    } catch (e) {
+        }).join('\n')}`;
+    } catch  {
         n.stack = error.stack;
     }
     (0, _errorsource.decorateServerError)(n, type);

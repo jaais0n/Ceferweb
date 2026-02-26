@@ -1476,7 +1476,7 @@ else {
             const i = /[\u0000-\u001f\u0022\u005c\ud800-\udfff]/;
             function strEscape(e) {
                 if (e.length < 5e3 && !i.test(e)) {
-                    return '"'.concat(e, '"');
+                    return `"${e}"`;
                 }
                 return JSON.stringify(e);
             }
@@ -1504,9 +1504,9 @@ else {
                     n = e.length;
                 }
                 const r = t === "," ? "" : " ";
-                let i = '"0":'.concat(r).concat(e[0]);
+                let i = `"0":${r}${e[0]}`;
                 for(let f = 1; f < n; f++){
-                    i += "".concat(t, '"').concat(f, '":').concat(r).concat(e[f]);
+                    i += `${t}"${f}":${r}${e[f]}`;
                 }
                 return i;
             }
@@ -1514,7 +1514,7 @@ else {
                 if (n.call(e, "circularValue")) {
                     const t = e.circularValue;
                     if (typeof t === "string") {
-                        return '"'.concat(t, '"');
+                        return `"${t}"`;
                     }
                     if (t == null) {
                         return t;
@@ -1545,7 +1545,7 @@ else {
                 if (n.call(e, t)) {
                     r = e[t];
                     if (typeof r !== "boolean") {
-                        throw new TypeError('The "'.concat(t, '" argument must be of type boolean'));
+                        throw new TypeError(`The "${t}" argument must be of type boolean`);
                     }
                 }
                 return r === undefined ? true : r;
@@ -1555,13 +1555,13 @@ else {
                 if (n.call(e, t)) {
                     r = e[t];
                     if (typeof r !== "number") {
-                        throw new TypeError('The "'.concat(t, '" argument must be of type number'));
+                        throw new TypeError(`The "${t}" argument must be of type number`);
                     }
                     if (!Number.isInteger(r)) {
-                        throw new TypeError('The "'.concat(t, '" argument must be an integer'));
+                        throw new TypeError(`The "${t}" argument must be an integer`);
                     }
                     if (r < 1) {
-                        throw new RangeError('The "'.concat(t, '" argument must be >= 1'));
+                        throw new RangeError(`The "${t}" argument must be >= 1`);
                     }
                 }
                 return r === undefined ? Infinity : r;
@@ -1570,7 +1570,7 @@ else {
                 if (e === 1) {
                     return "1 item";
                 }
-                return "".concat(e, " items");
+                return `${e} items`;
             }
             function getUniqueReplacerSet(e) {
                 const t = new Set;
@@ -1589,8 +1589,8 @@ else {
                     }
                     if (t) {
                         return (e)=>{
-                            let t = "Object can not safely be stringified. Received type ".concat(typeof e);
-                            if (typeof e !== "function") t += " (".concat(e.toString(), ")");
+                            let t = `Object can not safely be stringified. Received type ${typeof e}`;
+                            if (typeof e !== "function") t += ` (${e.toString()})`;
                             throw new Error(t);
                         };
                     }
@@ -1645,8 +1645,8 @@ else {
                                     l.push(p);
                                     if (a !== "") {
                                         g += a;
-                                        e += "\n".concat(g);
-                                        t = ",\n".concat(g);
+                                        e += `\n${g}`;
+                                        t = `,\n${g}`;
                                     }
                                     const n = Math.min(p.length, o);
                                     let i = 0;
@@ -1659,13 +1659,13 @@ else {
                                     e += f !== undefined ? f : "null";
                                     if (p.length - 1 > o) {
                                         const n = p.length - o - 1;
-                                        e += "".concat(t, '"... ').concat(getItemCount(n), ' not stringified"');
+                                        e += `${t}"... ${getItemCount(n)} not stringified"`;
                                     }
                                     if (a !== "") {
-                                        e += "\n".concat(r);
+                                        e += `\n${r}`;
                                     }
                                     l.pop();
-                                    return "[".concat(e, "]");
+                                    return `[${e}]`;
                                 }
                                 let s = Object.keys(p);
                                 const y = s.length;
@@ -1679,7 +1679,7 @@ else {
                                 let h = "";
                                 if (a !== "") {
                                     g += a;
-                                    t = ",\n".concat(g);
+                                    t = `,\n${g}`;
                                     d = " ";
                                 }
                                 const $ = Math.min(y, o);
@@ -1691,20 +1691,20 @@ else {
                                     const r = s[n];
                                     const i = stringifyFnReplacer(r, p, l, c, a, g);
                                     if (i !== undefined) {
-                                        e += "".concat(h).concat(strEscape(r), ":").concat(d).concat(i);
+                                        e += `${h}${strEscape(r)}:${d}${i}`;
                                         h = t;
                                     }
                                 }
                                 if (y > o) {
                                     const n = y - o;
-                                    e += "".concat(h, '"...":').concat(d, '"').concat(getItemCount(n), ' not stringified"');
+                                    e += `${h}"...":${d}"${getItemCount(n)} not stringified"`;
                                     h = t;
                                 }
                                 if (a !== "" && h.length > 1) {
-                                    e = "\n".concat(g).concat(e, "\n").concat(r);
+                                    e = `\n${g}${e}\n${r}`;
                                 }
                                 l.pop();
-                                return "{".concat(e, "}");
+                                return `{${e}}`;
                             }
                         case "number":
                             return isFinite(p) ? String(p) : t ? t(p) : "null";
@@ -1748,8 +1748,8 @@ else {
                                     f.push(i);
                                     if (l !== "") {
                                         c += l;
-                                        t += "\n".concat(c);
-                                        r = ",\n".concat(c);
+                                        t += `\n${c}`;
+                                        r = `,\n${c}`;
                                     }
                                     const n = Math.min(i.length, o);
                                     let a = 0;
@@ -1762,34 +1762,34 @@ else {
                                     t += g !== undefined ? g : "null";
                                     if (i.length - 1 > o) {
                                         const e = i.length - o - 1;
-                                        t += "".concat(r, '"... ').concat(getItemCount(e), ' not stringified"');
+                                        t += `${r}"... ${getItemCount(e)} not stringified"`;
                                     }
                                     if (l !== "") {
-                                        t += "\n".concat(e);
+                                        t += `\n${e}`;
                                     }
                                     f.pop();
-                                    return "[".concat(t, "]");
+                                    return `[${t}]`;
                                 }
                                 f.push(i);
                                 let a = "";
                                 if (l !== "") {
                                     c += l;
-                                    r = ",\n".concat(c);
+                                    r = `,\n${c}`;
                                     a = " ";
                                 }
                                 let g = "";
                                 for (const e of s){
                                     const n = stringifyArrayReplacer(e, i[e], f, s, l, c);
                                     if (n !== undefined) {
-                                        t += "".concat(g).concat(strEscape(e), ":").concat(a).concat(n);
+                                        t += `${g}${strEscape(e)}:${a}${n}`;
                                         g = r;
                                     }
                                 }
                                 if (l !== "" && g.length > 1) {
-                                    t = "\n".concat(c).concat(t, "\n").concat(e);
+                                    t = `\n${c}${t}\n${e}`;
                                 }
                                 f.pop();
-                                return "{".concat(t, "}");
+                                return `{${t}}`;
                             }
                         case "number":
                             return isFinite(i) ? String(i) : t ? t(i) : "null";
@@ -1836,8 +1836,8 @@ else {
                                     }
                                     l.push(s);
                                     a += c;
-                                    let e = "\n".concat(a);
-                                    const n = ",\n".concat(a);
+                                    let e = `\n${a}`;
+                                    const n = `,\n${a}`;
                                     const r = Math.min(s.length, o);
                                     let i = 0;
                                     for(; i < r - 1; i++){
@@ -1849,11 +1849,11 @@ else {
                                     e += f !== undefined ? f : "null";
                                     if (s.length - 1 > o) {
                                         const t = s.length - o - 1;
-                                        e += "".concat(n, '"... ').concat(getItemCount(t), ' not stringified"');
+                                        e += `${n}"... ${getItemCount(t)} not stringified"`;
                                     }
-                                    e += "\n".concat(t);
+                                    e += `\n${t}`;
                                     l.pop();
-                                    return "[".concat(e, "]");
+                                    return `[${e}]`;
                                 }
                                 let r = Object.keys(s);
                                 const g = r.length;
@@ -1864,7 +1864,7 @@ else {
                                     return '"[Object]"';
                                 }
                                 a += c;
-                                const p = ",\n".concat(a);
+                                const p = `,\n${a}`;
                                 let y = "";
                                 let d = "";
                                 let h = Math.min(g, o);
@@ -1882,20 +1882,20 @@ else {
                                     const t = r[e];
                                     const n = stringifyIndent(t, s[t], l, c, a);
                                     if (n !== undefined) {
-                                        y += "".concat(d).concat(strEscape(t), ": ").concat(n);
+                                        y += `${d}${strEscape(t)}: ${n}`;
                                         d = p;
                                     }
                                 }
                                 if (g > o) {
                                     const e = g - o;
-                                    y += "".concat(d, '"...": "').concat(getItemCount(e), ' not stringified"');
+                                    y += `${d}"...": "${getItemCount(e)} not stringified"`;
                                     d = p;
                                 }
                                 if (d !== "") {
-                                    y = "\n".concat(a).concat(y, "\n").concat(t);
+                                    y = `\n${a}${y}\n${t}`;
                                 }
                                 l.pop();
-                                return "{".concat(y, "}");
+                                return `{${y}}`;
                             }
                         case "number":
                             return isFinite(s) ? String(s) : t ? t(s) : "null";
@@ -1953,10 +1953,10 @@ else {
                                     t += r !== undefined ? r : "null";
                                     if (s.length - 1 > o) {
                                         const e = s.length - o - 1;
-                                        t += ',"... '.concat(getItemCount(e), ' not stringified"');
+                                        t += `,"... ${getItemCount(e)} not stringified"`;
                                     }
                                     l.pop();
-                                    return "[".concat(t, "]");
+                                    return `[${t}]`;
                                 }
                                 let c = Object.keys(s);
                                 const a = c.length;
@@ -1982,16 +1982,16 @@ else {
                                     const n = c[e];
                                     const r = stringifySimple(n, s[n], l);
                                     if (r !== undefined) {
-                                        t += "".concat(g).concat(strEscape(n), ":").concat(r);
+                                        t += `${g}${strEscape(n)}:${r}`;
                                         g = ",";
                                     }
                                 }
                                 if (a > o) {
                                     const e = a - o;
-                                    t += "".concat(g, '"...":"').concat(getItemCount(e), ' not stringified"');
+                                    t += `${g}"...":"${getItemCount(e)} not stringified"`;
                                 }
                                 l.pop();
-                                return "{".concat(t, "}");
+                                return `{${t}}`;
                             }
                         case "number":
                             return isFinite(s) ? String(s) : t ? t(s) : "null";
@@ -2064,8 +2064,7 @@ else {
     "use strict";
     var e = {
         511: (e)=>{
-            e.exports = function() {
-                let { onlyFirst: e = false } = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+            e.exports = ({ onlyFirst: e = false } = {})=>{
                 const r = [
                     "[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]+)*|[a-zA-Z\\d]+(?:;[-a-zA-Z\\d\\/#&.:=?%@~_]*)*)?\\u0007)",
                     "(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PR-TZcf-ntqry=><~]))"

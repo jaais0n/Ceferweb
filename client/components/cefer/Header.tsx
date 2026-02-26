@@ -65,7 +65,12 @@ export function Header() {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const shouldEnableAutoHide = !isHomePage;
-  const [isPlatformPage, setIsPlatformPage] = useState(false);
+
+  // Compute synchronously — avoids a post-hydration state flip that causes CLS
+  const platformPaths = platformItems.map((p) => p.path);
+  const ourDataPaths = dataItems.map((d) => d.path);
+  const isPlatformPage = [...platformPaths, ...ourDataPaths].some((pp) => (pathname || "/").startsWith(pp));
+
   const isMounted = useRef(false);
 
   // Close mobile menu on route change
@@ -85,7 +90,6 @@ export function Header() {
     const path = pathname || "/";
     const platformPaths = platformItems.map((p) => p.path);
     const ourDataPaths = dataItems.map((d) => d.path);
-    setIsPlatformPage([...platformPaths, ...ourDataPaths].some((pp) => path.startsWith(pp)));
     const resourcePaths = resourceItems.map((r) => r.path);
     const companyPaths = [...companyItems.map((c) => c.path), "/careers", "/privacy", "/terms", "/do-not-sell"];
     const looksLikePlatform = platformPaths.some((pp) => path.startsWith(pp));
@@ -175,15 +179,18 @@ export function Header() {
 
   const updateIndicator = (tabName: string) => {
     if (!tabName) return;
-    const element = document.getElementById(`nav-${tabName.replace(/\s+/g, '-')}`);
-    if (element && navRef.current) {
-      const navRect = navRef.current.getBoundingClientRect();
-      const elementRect = element.getBoundingClientRect();
-      setIndicatorStyle({
-        width: elementRect.width,
-        transform: `translateX(${elementRect.left - navRect.left}px)`,
-      });
-    }
+    // Use RAF to batch the DOM read after any pending writes — avoids forced reflow
+    requestAnimationFrame(() => {
+      const element = document.getElementById(`nav-${tabName.replace(/\s+/g, '-')}`);
+      if (element && navRef.current) {
+        const navRect = navRef.current.getBoundingClientRect();
+        const elementRect = element.getBoundingClientRect();
+        setIndicatorStyle({
+          width: elementRect.width,
+          transform: `translateX(${elementRect.left - navRect.left}px)`,
+        });
+      }
+    });
   };
 
   const handleMouseEnter = (item: string) => {
